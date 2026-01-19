@@ -1,0 +1,31 @@
+/* ===== Custom Color Variables ===== */
+:root {
+    --sidebar-bg: #705C53;
+    --main-bg: #F5F5F7;
+    --btn-primary: #EDDFE0;
+    --btn-secondary: #B7B7B7;
+}
+
+/* ===== Sidebar ===== */
+.sidebar-bg {
+    background: linear-gradient(135deg, #705C53 0%, #4A3F38 50%, #2D2620 100%);
+}
+
+/* Modern Gradient Sidebar */
+.sidebar-gradient {
+    background: linear-gradient(180deg, #705C53 0%, #5D4B44 40%, #4A3F38 70%, #3D322C 100%);
+}
+
+/* ===== Main Background ===== */
+.main-bg {
+    background-color: var(--main-bg);
+}
+
+/* ===== Buttons ===== */
+.btn-primary-custom {
+    background-color: var(--btn-primary);
+}
+
+.btn-secondary-custom {
+    background-color: var(--btn-secondary);
+}
