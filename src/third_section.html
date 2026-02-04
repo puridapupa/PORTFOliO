@@ -415,33 +415,14 @@
                     <div class="carousel-container" id="carousel1">
                         <div class="carousel-track">
                             <div class="carousel-slide" onclick="openModal(0, 0)">
-                                <img src="../assets/images/Gemini_Generated_Image_3wbttt3wbttt3wbt.png" alt="เวรเช้า">
-                                <div class="slide-overlay">
-                                    <p class="slide-title">เวรต้อนรับนักเรียนตอนเช้า</p>
-                                    <p class="slide-hint">คลิกเพื่อดูรายละเอียด</p>
-                                </div>
-                            </div>
-                            <div class="carousel-slide" onclick="openModal(0, 1)">
                                 <img src="../assets/images/Gemini_Generated_Image_3wbttt3wbttt3wbt.png"
-                                    alt="เวรรักษาความปลอดภัย">
+                                    alt="ยืนเวรประจำวัน">
                                 <div class="slide-overlay">
-                                    <p class="slide-title">เวรรักษาความปลอดภัย</p>
-                                    <p class="slide-hint">คลิกเพื่อดูรายละเอียด</p>
-                                </div>
-                            </div>
-                            <div class="carousel-slide" onclick="openModal(0, 2)">
-                                <img src="../assets/images/Gemini_Generated_Image_3wbttt3wbttt3wbt.png"
-                                    alt="เวรโรงอาหาร">
-                                <div class="slide-overlay">
-                                    <p class="slide-title">เวรดูแลโรงอาหาร</p>
+                                    <p class="slide-title">ยืนเวรประจำวัน</p>
                                     <p class="slide-hint">คลิกเพื่อดูรายละเอียด</p>
                                 </div>
                             </div>
                         </div>
-                        <button class="carousel-btn prev"
-                            onclick="event.stopPropagation(); moveSlide('carousel1', -1)">❮</button>
-                        <button class="carousel-btn next"
-                            onclick="event.stopPropagation(); moveSlide('carousel1', 1)">❯</button>
                     </div>
                     <div class="carousel-dots" id="carousel1-dots"></div>
                 </section>
@@ -517,55 +498,22 @@
             // Section 3.1 - การปฏิบัติหน้าที่เวรประจำวัน
             [
                 {
-                    title: "เวรต้อนรับนักเรียนตอนเช้า",
+                    title: "ยืนเวรประจำวัน",
                     images: [
                         "../assets/images/Gemini_Generated_Image_3wbttt3wbttt3wbt.png",
                         "../assets/images/Gemini_Generated_Image_3wbttt3wbttt3wbt.png",
                         "../assets/images/Gemini_Generated_Image_3wbttt3wbttt3wbt.png"
                     ],
                     description: `
-                        <p><strong>กิจกรรม:</strong> ปฏิบัติหน้าที่เวรต้อนรับนักเรียนทุกเช้า</p>
-                        <p><strong>วัตถุประสงค์:</strong> สร้างบรรยากาศที่ดีในการเข้าโรงเรียน และดูแลความปลอดภัย</p>
-                        <p><strong>รายละเอียด:</strong></p>
-                        <ul class="list-disc list-inside ml-4">
-                            <li>ต้อนรับนักเรียนหน้าประตูโรงเรียน</li>
-                            <li>ตรวจสอบความเรียบร้อยของนักเรียน</li>
-                            <li>ดูแลความปลอดภัยในการเดินทาง</li>
-                            <li>สร้างความสัมพันธ์อันดีกับนักเรียน</li>
-                        </ul>
-                    `
-                },
-                {
-                    title: "เวรรักษาความปลอดภัย",
-                    images: [
-                        "../assets/images/Gemini_Generated_Image_3wbttt3wbttt3wbt.png",
-                        "../assets/images/Gemini_Generated_Image_3wbttt3wbttt3wbt.png"
-                    ],
-                    description: `
-                        <p><strong>กิจกรรม:</strong> ปฏิบัติหน้าที่เวรรักษาความปลอดภัยภายในโรงเรียน</p>
+                        <p><strong>กิจกรรม:</strong> ปฏิบัติหน้าที่ยืนเวรประจำวัน</p>
                         <p><strong>วัตถุประสงค์:</strong> ดูแลความเรียบร้อยและความปลอดภัยของนักเรียน</p>
+                        <p><strong>ตารางเวร:</strong> เวรวันพุธช่วงเย็น เวลา 16:00-17:00 น.</p>
                         <p><strong>รายละเอียด:</strong></p>
                         <ul class="list-disc list-inside ml-4">
-                            <li>ตรวจตราบริเวณโรงเรียน</li>
-                            <li>ดูแลความเรียบร้อยช่วงพักกลางวัน</li>
-                            <li>ป้องกันเหตุไม่พึงประสงค์</li>
-                        </ul>
-                    `
-                },
-                {
-                    title: "เวรดูแลโรงอาหาร",
-                    images: [
-                        "../assets/images/Gemini_Generated_Image_3wbttt3wbttt3wbt.png",
-                        "../assets/images/Gemini_Generated_Image_3wbttt3wbttt3wbt.png"
-                    ],
-                    description: `
-                        <p><strong>กิจกรรม:</strong> ปฏิบัติหน้าที่ดูแลความเรียบร้อยในโรงอาหาร</p>
-                        <p><strong>วัตถุประสงค์:</strong> ดูแลให้นักเรียนรับประทานอาหารอย่างเป็นระเบียบ</p>
-                        <p><strong>รายละเอียด:</strong></p>
-                        <ul class="list-disc list-inside ml-4">
-                            <li>ดูแลการเข้าแถวซื้ออาหาร</li>
-                            <li>รักษาความสะอาดในโรงอาหาร</li>
-                            <li>ดูแลมารยาทในการรับประทานอาหาร</li>
+                            <li>ดูแลความเรียบร้อยภายในโรงเรียน</li>
+                            <li>ตรวจตราบริเวณต่างๆ</li>
+                            <li>ดูแลความปลอดภัยของนักเรียน</li>
+                            <li>รักษาระเบียบวินัยของโรงเรียน</li>
                         </ul>
                     `
                 }
