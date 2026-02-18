@@ -117,51 +117,406 @@
                     <div class="flex items-center justify-between mb-6">
                         <h2 class="text-2xl font-bold text-sidebar">1.1 แผนการจัดการเรียนรู้</h2>
                         <button
-                            onclick="downloadPDF('../assets/pdf_files/1.1/แผนการสอน 20แผน.pdf', 'แผนการจัดการเรียนรู้.pdf')"
+                            onclick="downloadPDF('../assets/pdf_files/1.1/แผนการสอน.pdf.pdf', 'แผนการจัดการเรียนรู้.pdf')"
                             class="px-6 py-2 bg-sidebar text-white rounded-xl hover:bg-sidebar/90 transition-all duration-200 cursor-pointer">
                             ดาวน์โหลด
                         </button>
                     </div>
                     <!-- PDF.js Viewer (All devices) -->
                     <div class="w-full h-[800px] rounded-xl border border-sidebar/10 overflow-hidden">
-                        <iframe src="/pdfjs/web/viewer.html?file=../../assets/pdf_files/1.1/แผนการสอน%2020แผน.pdf"
-                            class="w-full h-full" title="แผนการจัดการเรียนรู้"></iframe>
+                        <iframe src="/assets/pdf_files/1.1/แผนการสอน.pdf" class="w-full h-full"
+                            title="แผนการจัดการเรียนรู้"></iframe>
                     </div>
                 </section>
 
                 <!-- 1.2 สื่อเทคโนโลยี -->
                 <section class="bg-white rounded-2xl shadow-sm p-6 md:p-8">
-                    <div class="flex items-center justify-between mb-6">
-                        <h2 class="text-2xl font-bold text-sidebar">1.2 สื่อเทคโนโลยี</h2>
-                        <button
-                            onclick="downloadPDF('../assets/pdf_files/แบบฟอร์มตัวอย่างรูปเล่มรายงาน.pdf', 'สื่อเทคโนโลยี.pdf')"
-                            class="px-6 py-2 bg-sidebar text-white rounded-xl hover:bg-sidebar/90 transition-all duration-200 cursor-pointer">
-                            ดาวน์โหลด
-                        </button>
-                    </div>
-                    <!-- PDF.js Viewer (All devices) -->
-                    <div class="w-full h-[800px] rounded-xl border border-sidebar/10 overflow-hidden">
-                        <iframe
-                            src="/pdfjs/web/viewer.html?file=../../assets/pdf_files/แบบฟอร์มตัวอย่างรูปเล่มรายงาน.pdf"
-                            class="w-full h-full" title="สื่อเทคโนโลยี"></iframe>
+                    <h2 class="text-2xl font-bold text-sidebar mb-8">1.2 สื่อเทคโนโลยี</h2>
+
+                    <!-- Grid Cards Layout: 2x2 balanced -->
+                    <div class="space-y-4">
+
+                        <!-- Accordion 1: สไลด์การสอน -->
+                        <details class="group bg-white rounded-2xl shadow-sm border border-sidebar/10 overflow-hidden">
+                            <summary
+                                class="flex items-center justify-between p-6 cursor-pointer list-none bg-gradient-to-r from-white to-sidebar/5 hover:bg-sidebar/5 transition-all">
+                                <div class="flex items-center gap-4">
+                                    <div
+                                        class="w-12 h-12 rounded-xl flex items-center justify-center bg-[#705C53] text-white shadow-md group-open:scale-110 transition-transform">
+                                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2" />
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-bold text-sidebar text-xl">สไลด์การสอน</h3>
+                                        <p class="text-sm text-sidebar/60">8 สไลด์</p>
+                                    </div>
+                                </div>
+                                <span
+                                    class="transform group-open:rotate-180 transition-transform duration-300 text-sidebar/40">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M19 9l-7 7-7-7" />
+                                    </svg>
+                                </span>
+                            </summary>
+                            <div class="p-6 border-t border-sidebar/10 bg-white/50">
+                                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                                    <a href="https://www.canva.com/design/DAG3m-Z5jGs/VoQREpMwfCHhlBIIUI2RVw/edit?utm_content=DAG3m-Z5jGs&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"
+                                        target="_blank"
+                                        class="flex items-center gap-3 px-4 py-3 rounded-xl bg-white hover:bg-white border border-sidebar/10 hover:border-sidebar/30 transition-all duration-200 group shadow-sm hover:shadow-md">
+                                        <span
+                                            class="w-8 h-8 rounded-lg bg-sidebar/10 text-sidebar text-xs font-bold flex items-center justify-center group-hover:bg-sidebar group-hover:text-white transition-all">1</span>
+                                        <span class="text-sidebar/80 text-sm font-medium flex-1">สไลด์ที่ 1</span>
+                                    </a>
+                                    <a href="https://www.canva.com/design/DAG4H7xD_6U/xhtScbVAIuPCr5JnI-eghg/edit?utm_content=DAG4H7xD_6U&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"
+                                        target="_blank"
+                                        class="flex items-center gap-3 px-4 py-3 rounded-xl bg-white hover:bg-white border border-sidebar/10 hover:border-sidebar/30 transition-all duration-200 group shadow-sm hover:shadow-md">
+                                        <span
+                                            class="w-8 h-8 rounded-lg bg-sidebar/10 text-sidebar text-xs font-bold flex items-center justify-center group-hover:bg-sidebar group-hover:text-white transition-all">2</span>
+                                        <span class="text-sidebar/80 text-sm font-medium flex-1">สไลด์ที่ 2</span>
+                                    </a>
+                                    <a href="https://www.canva.com/design/DAG41BaXXGY/GUAb72TuW2336-zWzW_W_Q/edit?utm_content=DAG41BaXXGY&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"
+                                        target="_blank"
+                                        class="flex items-center gap-3 px-4 py-3 rounded-xl bg-white hover:bg-white border border-sidebar/10 hover:border-sidebar/30 transition-all duration-200 group shadow-sm hover:shadow-md">
+                                        <span
+                                            class="w-8 h-8 rounded-lg bg-sidebar/10 text-sidebar text-xs font-bold flex items-center justify-center group-hover:bg-sidebar group-hover:text-white transition-all">3</span>
+                                        <span class="text-sidebar/80 text-sm font-medium flex-1">สไลด์ที่ 3</span>
+                                    </a>
+                                    <a href="https://www.canva.com/design/DAG6LSVCGlA/F3ZPWc7f-2XVJI-2Z4l41Q/edit?utm_content=DAG6LSVCGlA&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"
+                                        target="_blank"
+                                        class="flex items-center gap-3 px-4 py-3 rounded-xl bg-white hover:bg-white border border-sidebar/10 hover:border-sidebar/30 transition-all duration-200 group shadow-sm hover:shadow-md">
+                                        <span
+                                            class="w-8 h-8 rounded-lg bg-sidebar/10 text-sidebar text-xs font-bold flex items-center justify-center group-hover:bg-sidebar group-hover:text-white transition-all">4</span>
+                                        <span class="text-sidebar/80 text-sm font-medium flex-1">สไลด์ที่ 4</span>
+                                    </a>
+                                    <a href="https://www.canva.com/design/DAG609tFHJU/-eTsHqAI67I9qm54AAOh0A/edit?utm_content=DAG609tFHJU&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"
+                                        target="_blank"
+                                        class="flex items-center gap-3 px-4 py-3 rounded-xl bg-white hover:bg-white border border-sidebar/10 hover:border-sidebar/30 transition-all duration-200 group shadow-sm hover:shadow-md">
+                                        <span
+                                            class="w-8 h-8 rounded-lg bg-sidebar/10 text-sidebar text-xs font-bold flex items-center justify-center group-hover:bg-sidebar group-hover:text-white transition-all">5</span>
+                                        <span class="text-sidebar/80 text-sm font-medium flex-1">สไลด์ที่ 5</span>
+                                    </a>
+                                    <a href="https://www.canva.com/design/DAG604SFyfU/Xxor9EhXQyxDC_6OWufofw/edit?utm_content=DAG604SFyfU&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"
+                                        target="_blank"
+                                        class="flex items-center gap-3 px-4 py-3 rounded-xl bg-white hover:bg-white border border-sidebar/10 hover:border-sidebar/30 transition-all duration-200 group shadow-sm hover:shadow-md">
+                                        <span
+                                            class="w-8 h-8 rounded-lg bg-sidebar/10 text-sidebar text-xs font-bold flex items-center justify-center group-hover:bg-sidebar group-hover:text-white transition-all">6</span>
+                                        <span class="text-sidebar/80 text-sm font-medium flex-1">สไลด์ที่ 6</span>
+                                    </a>
+                                    <a href="https://www.canva.com/design/DAG6LsIH7uw/OJ1pLpOsLxmfL8JHAC9pGA/edit?utm_content=DAG6LsIH7uw&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"
+                                        target="_blank"
+                                        class="flex items-center gap-3 px-4 py-3 rounded-xl bg-white hover:bg-white border border-sidebar/10 hover:border-sidebar/30 transition-all duration-200 group shadow-sm hover:shadow-md">
+                                        <span
+                                            class="w-8 h-8 rounded-lg bg-sidebar/10 text-sidebar text-xs font-bold flex items-center justify-center group-hover:bg-sidebar group-hover:text-white transition-all">7</span>
+                                        <span class="text-sidebar/80 text-sm font-medium flex-1">สไลด์ที่ 7</span>
+                                    </a>
+                                    <a href="https://www.canva.com/design/DAG62Cjl3sg/-TZdqg28oTrVOJg9rdkVZw/edit?utm_content=DAG62Cjl3sg&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"
+                                        target="_blank"
+                                        class="flex items-center gap-3 px-4 py-3 rounded-xl bg-white hover:bg-white border border-sidebar/10 hover:border-sidebar/30 transition-all duration-200 group shadow-sm hover:shadow-md">
+                                        <span
+                                            class="w-8 h-8 rounded-lg bg-sidebar/10 text-sidebar text-xs font-bold flex items-center justify-center group-hover:bg-sidebar group-hover:text-white transition-all">8</span>
+                                        <span class="text-sidebar/80 text-sm font-medium flex-1">สไลด์ที่ 8</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </details>
+
+                        <!-- Accordion 2: สื่อการสอนเพิ่มเติม -->
+                        <details class="group bg-white rounded-2xl shadow-sm border border-sidebar/10 overflow-hidden">
+                            <summary
+                                class="flex items-center justify-between p-6 cursor-pointer list-none bg-gradient-to-r from-white to-sidebar/5 hover:bg-sidebar/5 transition-all">
+                                <div class="flex items-center gap-4">
+                                    <div
+                                        class="w-12 h-12 rounded-xl flex items-center justify-center bg-[#705C53] text-white shadow-md group-open:scale-110 transition-transform">
+                                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-bold text-sidebar text-xl">สื่อการสอนเพิ่มเติม</h3>
+                                        <p class="text-sm text-sidebar/60">14 ลิงค์</p>
+                                    </div>
+                                </div>
+                                <span
+                                    class="transform group-open:rotate-180 transition-transform duration-300 text-sidebar/40">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M19 9l-7 7-7-7" />
+                                    </svg>
+                                </span>
+                            </summary>
+                            <div class="p-6 border-t border-sidebar/10 bg-white/50">
+                                <div
+                                    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 h-[500px] overflow-y-auto pr-2 custom-scrollbar">
+                                    <!-- 1. Pacdora -->
+                                    <a href="https://www.pacdora.com/?utm_source=googleads&utm_medium=search&campaign=branding&gad_source=1&gad_campaignid=22277641379&gbraid=0AAAAAoXzfogLqsf0XJZbO0PI4ozAE3Ujs&gclid=CjwKCAiAwNDMBhBfEiwAd7ti1CeHiYwcv3UxYmNmo0tLURNrGAd9cXB6GRGSfHe2u78IBhktMlk85hoCdi4QAvD_BwE"
+                                        target="_blank"
+                                        class="flex items-center gap-3 px-4 py-3 rounded-xl bg-white hover:bg-white border border-sidebar/10 hover:border-sidebar/30 transition-all duration-200 group shadow-sm hover:shadow-md">
+                                        <span
+                                            class="w-8 h-8 rounded-lg bg-sidebar/10 text-sidebar text-xs font-bold flex items-center justify-center group-hover:bg-sidebar group-hover:text-white transition-all">1</span>
+                                        <span
+                                            class="text-sidebar/80 text-sm font-medium flex-1 truncate">สื่อประกอบการสอน
+                                            1</span>
+                                    </a>
+                                    <!-- 2. Genially -->
+                                    <a href="https://app.genially.com/teams/695a461a7e4a6b4bdbd4f3ac/home"
+                                        target="_blank"
+                                        class="flex items-center gap-3 px-4 py-3 rounded-xl bg-white hover:bg-white border border-sidebar/10 hover:border-sidebar/30 transition-all duration-200 group shadow-sm hover:shadow-md">
+                                        <span
+                                            class="w-8 h-8 rounded-lg bg-sidebar/10 text-sidebar text-xs font-bold flex items-center justify-center group-hover:bg-sidebar group-hover:text-white transition-all">2</span>
+                                        <span
+                                            class="text-sidebar/80 text-sm font-medium flex-1 truncate">สื่อประกอบการสอน
+                                            2</span>
+                                    </a>
+                                    <!-- 3. YouTube -->
+                                    <a href="https://youtu.be/6JPyLvzcgyM" target="_blank"
+                                        class="flex items-center gap-3 px-4 py-3 rounded-xl bg-white hover:bg-white border border-sidebar/10 hover:border-sidebar/30 transition-all duration-200 group shadow-sm hover:shadow-md">
+                                        <span
+                                            class="w-8 h-8 rounded-lg bg-sidebar/10 text-sidebar text-xs font-bold flex items-center justify-center group-hover:bg-sidebar group-hover:text-white transition-all">3</span>
+                                        <span
+                                            class="text-sidebar/80 text-sm font-medium flex-1 truncate">สื่อประกอบการสอน
+                                            3</span>
+                                    </a>
+                                    <!-- 4. TikTok 1 -->
+                                    <a href="https://www.tiktok.com/@azuma.media/video/7539183103244373270?is_from_webapp=1&sender_device=pc&web_id=7602131068611053076"
+                                        target="_blank"
+                                        class="flex items-center gap-3 px-4 py-3 rounded-xl bg-white hover:bg-white border border-sidebar/10 hover:border-sidebar/30 transition-all duration-200 group shadow-sm hover:shadow-md">
+                                        <span
+                                            class="w-8 h-8 rounded-lg bg-sidebar/10 text-sidebar text-xs font-bold flex items-center justify-center group-hover:bg-sidebar group-hover:text-white transition-all">4</span>
+                                        <span
+                                            class="text-sidebar/80 text-sm font-medium flex-1 truncate">สื่อประกอบการสอน
+                                            4</span>
+                                    </a>
+                                    <!-- 5. TikTok 2 -->
+                                    <a href="https://www.tiktok.com/@azuma.media/video/7561450001310895363?is_from_webapp=1&sender_device=pc&web_id=7602131068611053076"
+                                        target="_blank"
+                                        class="flex items-center gap-3 px-4 py-3 rounded-xl bg-white hover:bg-white border border-sidebar/10 hover:border-sidebar/30 transition-all duration-200 group shadow-sm hover:shadow-md">
+                                        <span
+                                            class="w-8 h-8 rounded-lg bg-sidebar/10 text-sidebar text-xs font-bold flex items-center justify-center group-hover:bg-sidebar group-hover:text-white transition-all">5</span>
+                                        <span
+                                            class="text-sidebar/80 text-sm font-medium flex-1 truncate">สื่อประกอบการสอน
+                                            5</span>
+                                    </a>
+                                    <!-- 6. TikTok 3 -->
+                                    <a href="https://www.tiktok.com/@azuma.media/video/7578906416346582275?is_from_webapp=1&sender_device=pc"
+                                        target="_blank"
+                                        class="flex items-center gap-3 px-4 py-3 rounded-xl bg-white hover:bg-white border border-sidebar/10 hover:border-sidebar/30 transition-all duration-200 group shadow-sm hover:shadow-md">
+                                        <span
+                                            class="w-8 h-8 rounded-lg bg-sidebar/10 text-sidebar text-xs font-bold flex items-center justify-center group-hover:bg-sidebar group-hover:text-white transition-all">6</span>
+                                        <span
+                                            class="text-sidebar/80 text-sm font-medium flex-1 truncate">สื่อประกอบการสอน
+                                            6</span>
+                                    </a>
+                                    <!-- 7. TikTok 4 -->
+                                    <a href="https://www.tiktok.com/@gueituuuu/video/7484527820429970743?is_from_webapp=1&sender_device=pc&web_id=7602131068611053076"
+                                        target="_blank"
+                                        class="flex items-center gap-3 px-4 py-3 rounded-xl bg-white hover:bg-white border border-sidebar/10 hover:border-sidebar/30 transition-all duration-200 group shadow-sm hover:shadow-md">
+                                        <span
+                                            class="w-8 h-8 rounded-lg bg-sidebar/10 text-sidebar text-xs font-bold flex items-center justify-center group-hover:bg-sidebar group-hover:text-white transition-all">7</span>
+                                        <span
+                                            class="text-sidebar/80 text-sm font-medium flex-1 truncate">สื่อประกอบการสอน
+                                            7</span>
+                                    </a>
+                                    <!-- 8. TikTok 5 -->
+                                    <a href="https://www.tiktok.com/@gyumania/video/7513212290976566544?is_from_webapp=1&sender_device=pc&web_id=7602131068611053076"
+                                        target="_blank"
+                                        class="flex items-center gap-3 px-4 py-3 rounded-xl bg-white hover:bg-white border border-sidebar/10 hover:border-sidebar/30 transition-all duration-200 group shadow-sm hover:shadow-md">
+                                        <span
+                                            class="w-8 h-8 rounded-lg bg-sidebar/10 text-sidebar text-xs font-bold flex items-center justify-center group-hover:bg-sidebar group-hover:text-white transition-all">8</span>
+                                        <span
+                                            class="text-sidebar/80 text-sm font-medium flex-1 truncate">สื่อประกอบการสอน
+                                            8</span>
+                                    </a>
+                                    <!-- 9. Placeholder -->
+                                    <a href="https://www.youtube.com/watch?v=M6BfE2aB1m8&authuser=0 " target="_blank"
+                                        class="flex items-center gap-3 px-4 py-3 rounded-xl bg-white hover:bg-white border border-sidebar/10 hover:border-sidebar/30 transition-all duration-200 group shadow-sm hover:shadow-md">
+                                        <span
+                                            class="w-8 h-8 rounded-lg bg-sidebar/10 text-sidebar text-xs font-bold flex items-center justify-center group-hover:bg-sidebar group-hover:text-white transition-all">9</span>
+                                        <span
+                                            class="text-sidebar/80 text-sm font-medium flex-1 truncate">สื่อประกอบการสอน
+                                            9</span>
+                                    </a>
+                                    <!-- 10. Placeholder -->
+                                    <a href="https://www.youtube.com/watch?v=FRn4JzgmCwY&authuser=0 " target="_blank"
+                                        class="flex items-center gap-3 px-4 py-3 rounded-xl bg-white hover:bg-white border border-sidebar/10 hover:border-sidebar/30 transition-all duration-200 group shadow-sm hover:shadow-md">
+                                        <span
+                                            class="w-8 h-8 rounded-lg bg-sidebar/10 text-sidebar text-xs font-bold flex items-center justify-center group-hover:bg-sidebar group-hover:text-white transition-all">10</span>
+                                        <span
+                                            class="text-sidebar/80 text-sm font-medium flex-1 truncate">สื่อประกอบการสอน
+                                            10</span>
+                                    </a>
+                                    <!-- 11. Placeholder -->
+                                    <a href="https://www.youtube.com/watch?v=aLl__k4arO4&authuser=0 " target="_blank"
+                                        class="flex items-center gap-3 px-4 py-3 rounded-xl bg-white hover:bg-white border border-sidebar/10 hover:border-sidebar/30 transition-all duration-200 group shadow-sm hover:shadow-md">
+                                        <span
+                                            class="w-8 h-8 rounded-lg bg-sidebar/10 text-sidebar text-xs font-bold flex items-center justify-center group-hover:bg-sidebar group-hover:text-white transition-all">11</span>
+                                        <span
+                                            class="text-sidebar/80 text-sm font-medium flex-1 truncate">สื่อประกอบการสอน
+                                            11</span>
+                                    </a>
+                                    <!-- 12. Placeholder -->
+                                    <a href="https://www.youtube.com/watch?v=uBC_MWQVJwI&authuser=0 " target="_blank"
+                                        class="flex items-center gap-3 px-4 py-3 rounded-xl bg-white hover:bg-white border border-sidebar/10 hover:border-sidebar/30 transition-all duration-200 group shadow-sm hover:shadow-md">
+                                        <span
+                                            class="w-8 h-8 rounded-lg bg-sidebar/10 text-sidebar text-xs font-bold flex items-center justify-center group-hover:bg-sidebar group-hover:text-white transition-all">12</span>
+                                        <span
+                                            class="text-sidebar/80 text-sm font-medium flex-1 truncate">สื่อประกอบการสอน
+                                            12</span>
+                                    </a>
+                                    <!-- 13. Placeholder -->
+                                    <a href="https://www.youtube.com/watch?v=mDhkdilBjiw&authuser=0" target="_blank"
+                                        class="flex items-center gap-3 px-4 py-3 rounded-xl bg-white hover:bg-white border border-sidebar/10 hover:border-sidebar/30 transition-all duration-200 group shadow-sm hover:shadow-md">
+                                        <span
+                                            class="w-8 h-8 rounded-lg bg-sidebar/10 text-sidebar text-xs font-bold flex items-center justify-center group-hover:bg-sidebar group-hover:text-white transition-all">13</span>
+                                        <span
+                                            class="text-sidebar/80 text-sm font-medium flex-1 truncate">สื่อประกอบการสอน
+                                            13</span>
+                                    </a>
+                                    <!-- 14. Placeholder -->
+                                    <a href="https://www.youtube.com/watch?v=s1OlXIHNj3M&authuser=0 " target="_blank"
+                                        class="flex items-center gap-3 px-4 py-3 rounded-xl bg-white hover:bg-white border border-sidebar/10 hover:border-sidebar/30 transition-all duration-200 group shadow-sm hover:shadow-md">
+                                        <span
+                                            class="w-8 h-8 rounded-lg bg-sidebar/10 text-sidebar text-xs font-bold flex items-center justify-center group-hover:bg-sidebar group-hover:text-white transition-all">14</span>
+                                        <span
+                                            class="text-sidebar/80 text-sm font-medium flex-1 truncate">สื่อประกอบการสอน
+                                            14</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </details>
+
+                        <!-- Accordion 3: ใบงาน -->
+                        <details class="group bg-white rounded-2xl shadow-sm border border-sidebar/10 overflow-hidden">
+                            <summary
+                                class="flex items-center justify-between p-6 cursor-pointer list-none bg-gradient-to-r from-white to-sidebar/5 hover:bg-sidebar/5 transition-all">
+                                <div class="flex items-center gap-4">
+                                    <div
+                                        class="w-12 h-12 rounded-xl flex items-center justify-center bg-[#705C53] text-white shadow-md group-open:scale-110 transition-transform">
+                                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-bold text-sidebar text-xl">ใบงาน</h3>
+                                        <p class="text-sm text-sidebar/60">1 ไฟล์</p>
+                                    </div>
+                                </div>
+                                <span
+                                    class="transform group-open:rotate-180 transition-transform duration-300 text-sidebar/40">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M19 9l-7 7-7-7" />
+                                    </svg>
+                                </span>
+                            </summary>
+                            <div class="p-6 border-t border-sidebar/10 bg-white/50">
+                                <a href="/assets/pdf_files/1.2/ใบงาน/ใบงานการจัดการเรียนรู้.pdf" target="_blank"
+                                    class="flex items-center gap-3 px-4 py-3 rounded-xl bg-white hover:bg-white border border-sidebar/10 hover:border-sidebar/30 transition-all duration-200 group shadow-sm hover:shadow-md">
+                                    <svg class="w-5 h-5 text-sidebar/50 group-hover:text-sidebar transition-colors"
+                                        fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                                    </svg>
+                                    <span
+                                        class="text-sidebar/80 text-sm font-medium flex-1">ใบงานประกอบการเรียนรู้</span>
+                                    <svg class="w-4 h-4 text-sidebar/40 group-hover:text-sidebar transition-colors"
+                                        fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </details>
+
+                        <!-- Accordion 4: แบบทดสอบ -->
+                        <details class="group bg-white rounded-2xl shadow-sm border border-sidebar/10 overflow-hidden">
+                            <summary
+                                class="flex items-center justify-between p-6 cursor-pointer list-none bg-gradient-to-r from-white to-sidebar/5 hover:bg-sidebar/5 transition-all">
+                                <div class="flex items-center gap-4">
+                                    <div
+                                        class="w-12 h-12 rounded-xl flex items-center justify-center bg-[#705C53] text-white shadow-md group-open:scale-110 transition-transform">
+                                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-bold text-sidebar text-xl">แบบทดสอบ</h3>
+                                        <p class="text-sm text-sidebar/60">ก่อนเรียน & หลังเรียน</p>
+                                    </div>
+                                </div>
+                                <span
+                                    class="transform group-open:rotate-180 transition-transform duration-300 text-sidebar/40">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M19 9l-7 7-7-7" />
+                                    </svg>
+                                </span>
+                            </summary>
+                            <div class="p-6 border-t border-sidebar/10 bg-white/50 space-y-3">
+                                <a href="https://forms.gle/DHLXsSyUqu1oAdy5A" target="_blank"
+                                    class="flex items-center gap-3 px-4 py-3 rounded-xl bg-white hover:bg-white border border-sidebar/10 hover:border-sidebar/30 transition-all duration-200 group shadow-sm hover:shadow-md">
+                                    <span
+                                        class="px-2 py-0.5 rounded-md text-xs font-bold text-white bg-[#705C53]">ก่อน</span>
+                                    <span class="text-sidebar/80 text-sm font-medium flex-1">แบบทดสอบก่อนเรียน</span>
+                                    <svg class="w-4 h-4 text-sidebar/40 group-hover:text-sidebar transition-colors"
+                                        fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                    </svg>
+                                </a>
+                                <a href="Phttps://forms.gle/fJ5ujJPaXFBaEtud9" target="_blank"
+                                    class="flex items-center gap-3 px-4 py-3 rounded-xl bg-white hover:bg-white border border-sidebar/10 hover:border-sidebar/30 transition-all duration-200 group shadow-sm hover:shadow-md">
+                                    <span
+                                        class="px-2 py-0.5 rounded-md text-xs font-bold text-white bg-[#4A3F38]">หลัง</span>
+                                    <span class="text-sidebar/80 text-sm font-medium flex-1">แบบทดสอบหลังเรียน</span>
+                                    <svg class="w-4 h-4 text-sidebar/40 group-hover:text-sidebar transition-colors"
+                                        fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </details>
+
                     </div>
                 </section>
+
 
                 <!-- 1.3 การวัดผลและประเมินผล -->
                 <section class="bg-white rounded-2xl shadow-sm p-6 md:p-8">
                     <div class="flex items-center justify-between mb-6">
                         <h2 class="text-2xl font-bold text-sidebar">1.3 การวัดผลและประเมินผล</h2>
-                        <button
-                            onclick="downloadPDF('../assets/pdf_files/Worksheet 1,2 ม.4 เทอม2.pdf', 'การวัดผลและประเมินผล.pdf')"
-                            class="px-6 py-2 bg-sidebar text-white rounded-xl hover:bg-sidebar/90 transition-all duration-200 cursor-pointer">
-                            ดาวน์โหลด
-                        </button>
                     </div>
-                    <!-- PDF.js Viewer (All devices) -->
-                    <div class="w-full h-[800px] rounded-xl border border-sidebar/10 overflow-hidden">
-                        <iframe
-                            src="/pdfjs/web/viewer.html?file=../../assets/pdf_files/Worksheet%201,2%20ม.4%20เทอม2.pdf"
-                            class="w-full h-full" title="การวัดผลและประเมินผล"></iframe>
+                    <!-- Link Display Area (maintains same height as iframe) -->
+                    <div
+                        class="w-full h-[800px] rounded-xl border border-sidebar/10 overflow-hidden bg-gradient-to-br from-sidebar/5 to-sidebar/10 flex items-center justify-center">
+                        <div class="text-center space-y-6 p-8">
+                            <div class="mb-8">
+                                <svg class="w-24 h-24 mx-auto text-sidebar/40" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                        d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+                                </svg>
+                            </div>
+                            <h3 class="text-2xl font-bold text-sidebar mb-4">ลิงค์เอกสารการวัดผลและประเมินผล</h3>
+                            <p class="text-sidebar/70 mb-6">คลิกลิงค์ด้านล่างเพื่อเข้าถึงเอกสาร</p>
+                            <a href="https://docs.google.com/spreadsheets/d/1KheYTF8_cmLLfXR3oqJ0pCC26_pq00IRarYGkxwFJDw/edit?usp=sharing"
+                                target="_blank" rel="noopener noreferrer"
+                                class="inline-block px-8 py-4 bg-sidebar text-white rounded-xl hover:bg-sidebar/90 transition-all duration-200 text-lg font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                                เปิดเอกสาร
+                                <svg class="inline-block w-5 h-5 ml-2" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                </svg>
+                            </a>
+                            <p class="text-sm text-sidebar/50 mt-4">เอกสารจะเปิดในแท็บใหม่</p>
+                        </div>
                     </div>
                 </section>
 
