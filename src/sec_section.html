@@ -499,7 +499,8 @@
                                     <span>📋</span>
                                     <span>แบบรายงานผลการจัดประชุมผู้ปกครองระดับห้องเรียน</span>
                                 </div>
-                                <iframe src="../assets/pdf_files/2.2/แบบรายงานผลการจัดประชุมผู้ปกครองระดับห้(1).pdf"
+                                <iframe
+                                    src="../assets/pdf_files/2.2/แบบรายงานผลการจัดประชุมผู้ปกครองระดับห้(1).pdf#view=FitH&toolbar=0"
                                     class="w-full" style="height: 380px; border: none;"
                                     title="แบบรายงานผลการจัดประชุมผู้ปกครองระดับห้องเรียน">
                                 </iframe>
@@ -758,6 +759,34 @@
                 dot.onclick = () => goToSlide(carouselId, index);
                 dotsContainer.appendChild(dot);
             });
+
+            // Touch swipe support for mobile
+            let touchStartX = 0;
+            let touchEndX = 0;
+            let isSwiping = false;
+
+            container.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].clientX;
+                isSwiping = false;
+            }, { passive: true });
+
+            container.addEventListener('touchmove', (e) => {
+                const diff = Math.abs(e.changedTouches[0].clientX - touchStartX);
+                if (diff > 10) isSwiping = true;
+            }, { passive: true });
+
+            container.addEventListener('touchend', (e) => {
+                touchEndX = e.changedTouches[0].clientX;
+                const diff = touchStartX - touchEndX;
+                if (Math.abs(diff) > 50) {
+                    moveSlide(carouselId, diff > 0 ? 1 : -1);
+                }
+            }, { passive: true });
+
+            // Prevent click from firing after a swipe
+            container.addEventListener('click', (e) => {
+                if (isSwiping) e.stopPropagation();
+            }, true);
         }
 
         function moveSlide(carouselId, direction) {
