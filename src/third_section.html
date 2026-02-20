@@ -412,23 +412,107 @@
                 <section class="bg-white rounded-2xl shadow-sm p-6 md:p-8">
                     <h2 class="text-2xl font-bold text-sidebar mb-6">3.1 การปฏิบัติหน้าที่เวรประจำวัน</h2>
 
-                    <div class="carousel-container" id="carousel1">
-                        <div class="carousel-track">
-                            <div class="carousel-slide" onclick="openModal(0, 0)">
-                                <img src="../assets/images/section3/3.1/780DDA99-4CDA-46F2-B2FD-508D74E160EE_1_105_c.jpeg"
-                                    alt="ยืนเวรประจำวัน">
-                                <div class="slide-overlay">
-                                    <p class="slide-title">ยืนเวรประจำวัน</p>
-                                    <p class="slide-hint">คลิกเพื่อดูรายละเอียด</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
+                        <!-- Left: Photo Carousel -->
+                        <div>
+                            <p class="text-sm font-semibold text-sidebar/70 uppercase tracking-wide mb-3">📸 ภาพกิจกรรม
+                            </p>
+                            <div class="carousel-container" id="carousel1">
+                                <div class="carousel-track">
+                                    <div class="carousel-slide" onclick="openModal(0, 0)">
+                                        <img src="../assets/images/section3/3.1/780DDA99-4CDA-46F2-B2FD-508D74E160EE_1_105_c.jpeg"
+                                            alt="ยืนเวรประจำวัน">
+                                        <div class="slide-overlay">
+                                            <p class="slide-title">ยืนเวรประจำวัน</p>
+                                            <p class="slide-hint">คลิกเพื่อดูรายละเอียด</p>
+                                        </div>
+                                    </div>
+                                    <div class="carousel-slide" onclick="openModal(0, 0)">
+                                        <img src="../assets/images/section3/3.1/5D576B50-9C16-41C2-9AE2-6B0E2DC2F1B9_1_105_c.jpeg"
+                                            alt="ยืนเวรประจำวัน">
+                                        <div class="slide-overlay">
+                                            <p class="slide-title">ยืนเวรประจำวัน</p>
+                                            <p class="slide-hint">คลิกเพื่อดูรายละเอียด</p>
+                                        </div>
+                                    </div>
+                                    <div class="carousel-slide" onclick="openModal(0, 0)">
+                                        <img src="../assets/images/section3/3.1/A351D1DA-CC89-43A9-BF08-3A2EA1446322_1_105_c.jpeg"
+                                            alt="ยืนเวรประจำวัน">
+                                        <div class="slide-overlay">
+                                            <p class="slide-title">ยืนเวรประจำวัน</p>
+                                            <p class="slide-hint">คลิกเพื่อดูรายละเอียด</p>
+                                        </div>
+                                    </div>
+                                    <div class="carousel-slide" onclick="openModal(0, 0)">
+                                        <img src="../assets/images/section3/3.1/312338E0-EB77-4EDB-B821-D0CE785638E4_1_105_c.jpeg"
+                                            alt="ยืนเวรประจำวัน">
+                                        <div class="slide-overlay">
+                                            <p class="slide-title">ยืนเวรประจำวัน</p>
+                                            <p class="slide-hint">คลิกเพื่อดูรายละเอียด</p>
+                                        </div>
+                                    </div>
+                                    <div class="carousel-slide" onclick="openModal(0, 0)">
+                                        <img src="../assets/images/section3/3.1/39854951-4D1F-4A06-BE08-0C547F085255_1_105_c.jpeg"
+                                            alt="ยืนเวรประจำวัน">
+                                        <div class="slide-overlay">
+                                            <p class="slide-title">ยืนเวรประจำวัน</p>
+                                            <p class="slide-hint">คลิกเพื่อดูรายละเอียด</p>
+                                        </div>
+                                    </div>
+                                    <div class="carousel-slide" onclick="openModal(0, 0)">
+                                        <img src="../assets/images/section3/3.1/BD8E282E-E693-4AB7-9374-1F13D934C62D_1_105_c.jpeg"
+                                            alt="ยืนเวรประจำวัน">
+                                        <div class="slide-overlay">
+                                            <p class="slide-title">ยืนเวรประจำวัน</p>
+                                            <p class="slide-hint">คลิกเพื่อดูรายละเอียด</p>
+                                        </div>
+                                    </div>
+                                    <div class="carousel-slide" onclick="openModal(0, 0)">
+                                        <img src="../assets/images/section3/3.1/8CF4CE46-1DC6-4400-8C11-7688698DF685_1_201_a.jpeg"
+                                            alt="ยืนเวรประจำวัน">
+                                        <div class="slide-overlay">
+                                            <p class="slide-title">ยืนเวรประจำวัน</p>
+                                            <p class="slide-hint">คลิกเพื่อดูรายละเอียด</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="carousel-btn prev"
+                                    onclick="event.stopPropagation(); moveSlide('carousel1', -1)">❮</button>
+                                <button class="carousel-btn next"
+                                    onclick="event.stopPropagation(); moveSlide('carousel1', 1)">❯</button>
+                            </div>
+                            <div class="carousel-dots" id="carousel1-dots"></div>
+                        </div>
+
+                        <!-- Right: Document Link -->
+                        <div>
+                            <p class="text-sm font-semibold text-sidebar/70 uppercase tracking-wide mb-3">📄
+                                เอกสารประกอบ</p>
+                            <div class="rounded-xl border border-btn-primary overflow-hidden shadow-sm">
+                                <div class="flex items-center gap-2 px-4 py-3 text-sm font-medium text-sidebar"
+                                    style="background:#EDDFE0;">
+                                    <span>📋</span>
+                                    <span>ตารางเวรประจำวัน</span>
+                                </div>
+                                <div class="p-5 bg-white space-y-3">
+                                    <p class="text-sm text-sidebar/70">รายละเอียดการปฏิบัติหน้าที่เวรประจำวัน
+                                        เวรวันพุธช่วงเย็น บริเวณประตู 1 เวลา 16:00–17:00 น.</p>
+                                    <ul class="text-sm text-sidebar/70 list-disc list-inside space-y-1">
+                                        <li>ดูแลความเรียบร้อยภายในโรงเรียน</li>
+                                        <li>ตรวจตราบริเวณต่างๆ</li>
+                                        <li>ดูแลความปลอดภัยของนักเรียน</li>
+                                        <li>รักษาระเบียบวินัยของโรงเรียน</li>
+                                    </ul>
+                                    <a href="https://docs.google.com/spreadsheets/d/1NdIJqWg9dxUwqxRPPEUEjr3imXwqEy7qM6Ff9SAd9F0/edit?usp=sharing"
+                                        target="_blank"
+                                        class="inline-flex items-center gap-2 mt-2 px-4 py-2 rounded-lg text-sm font-medium text-white transition-all duration-200 hover:opacity-90"
+                                        style="background:#705C53;">
+                                        ↗ เปิดเอกสารตารางเวร
+                                    </a>
                                 </div>
                             </div>
                         </div>
-                        <button class="carousel-btn prev"
-                            onclick="event.stopPropagation(); moveSlide('carousel1', -1)">❮</button>
-                        <button class="carousel-btn next"
-                            onclick="event.stopPropagation(); moveSlide('carousel1', 1)">❯</button>
                     </div>
-                    <div class="carousel-dots" id="carousel1-dots"></div>
                 </section>
 
                 <!-- 3.2 การทำงานร่วมกับผู้อื่นและการมีจิตอาสา -->
