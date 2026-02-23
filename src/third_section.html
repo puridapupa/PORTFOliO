@@ -245,15 +245,29 @@
         .modal-image-carousel {
             position: relative;
             overflow: hidden;
+            border-radius: 1.5rem 1.5rem 0 0;
         }
 
         .modal-image-track {
             display: flex;
-            transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            -ms-overflow-style: none;
+            /* IE and Edge */
+            scrollbar-width: none;
+            /* Firefox */
+        }
+
+        .modal-image-track::-webkit-scrollbar {
+            display: none;
+            /* Chrome, Safari and Opera */
         }
 
         .modal-image-slide {
             min-width: 100%;
+            flex: 0 0 100%;
+            scroll-snap-align: start;
         }
 
         .modal-image-slide img {
@@ -279,6 +293,17 @@
             color: #705C53;
             transition: all 0.3s ease;
             z-index: 5;
+        }
+
+        /* Hide duplicate/overlapping buttons on mobile */
+        @media (max-width: 768px) {
+            .modal-img-nav {
+                display: none;
+            }
+
+            .modal-nav-btn {
+                display: none;
+            }
         }
 
         .modal-img-nav:hover {
@@ -407,7 +432,8 @@
             <div class="space-y-12">
 
                 <!-- 3.1 การปฏิบัติหน้าที่เวรประจำวัน -->
-                <section class="bg-white rounded-2xl shadow-sm p-6 md:p-8">
+                <section
+                    class="bg-white rounded-2xl shadow-sm p-6 md:p-8 hover:-translate-y-1 transition-transform duration-300 hover:shadow-md">
                     <h2 class="text-2xl font-bold text-sidebar mb-6">3.1 การปฏิบัติหน้าที่เวรประจำวัน</h2>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
@@ -516,7 +542,8 @@
                 </section>
 
                 <!-- 3.2 การทำงานร่วมกับผู้อื่นและการมีจิตอาสา -->
-                <section class="bg-white rounded-2xl shadow-sm p-6 md:p-8">
+                <section
+                    class="bg-white rounded-2xl shadow-sm p-6 md:p-8 hover:-translate-y-1 transition-transform duration-300 hover:shadow-md">
                     <h2 class="text-2xl font-bold text-sidebar mb-6">3.2 การทำงานร่วมกับผู้อื่นและการมีจิตอาสา</h2>
 
                     <div class="carousel-container" id="carousel2">
@@ -580,7 +607,8 @@
                 </section>
 
                 <!-- 3.3 การพัฒนาตนเองด้านวิชาชีพครู -->
-                <section class="bg-white rounded-2xl shadow-sm p-6 md:p-8">
+                <section
+                    class="bg-white rounded-2xl shadow-sm p-6 md:p-8 hover:-translate-y-1 transition-transform duration-300 hover:shadow-md">
                     <h2 class="text-2xl font-bold text-sidebar mb-6">3.3 การพัฒนาตนเองด้านวิชาชีพครู</h2>
 
                     <div class="carousel-container" id="carousel3">
@@ -953,6 +981,18 @@
                 dotsContainer.appendChild(dot);
             });
 
+            // Listen for native scroll to update dots
+            track.onscroll = () => {
+                const index = Math.round(track.scrollLeft / track.clientWidth);
+                if (index !== currentImageIndex) {
+                    currentImageIndex = index;
+                    const dots = dotsContainer.querySelectorAll('.modal-img-dot');
+                    dots.forEach((dot, i) => {
+                        dot.classList.toggle('active', i === currentImageIndex);
+                    });
+                }
+            };
+
             currentImageIndex = 0;
             updateModalImagePosition();
 
@@ -983,8 +1023,10 @@
 
         function updateModalImagePosition() {
             const track = document.getElementById('modal-image-track');
-            const offset = -currentImageIndex * 100;
-            track.style.transform = `translateX(${offset}%)`;
+            track.scrollTo({
+                left: currentImageIndex * track.clientWidth,
+                behavior: 'smooth'
+            });
 
             const dots = document.getElementById('modal-img-dots').querySelectorAll('.modal-img-dot');
             dots.forEach((dot, index) => {
@@ -1022,6 +1064,36 @@
             initCarousel('carousel1');
             initCarousel('carousel2');
             initCarousel('carousel3');
+        });
+
+        // --- Animations on Scroll ---
+        document.addEventListener('DOMContentLoaded', () => {
+            const animateElements = document.querySelectorAll('.bg-white.rounded-2xl, section h2, section p');
+
+            animateElements.forEach((el, index) => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = `opacity 0.6s ease-out, transform 0.6s ease-out`;
+                el.style.transitionDelay = `${(index % 3) * 0.15}s`;
+            });
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.15
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            animateElements.forEach(el => observer.observe(el));
         });
     </script>
 </body>

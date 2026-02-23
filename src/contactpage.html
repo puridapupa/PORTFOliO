@@ -171,7 +171,7 @@
             <div class="min-h-screen flex flex-col lg:flex-row">
 
                 <!-- Left Side - Large Image -->
-                <div class="lg:w-1/2 relative overflow-hidden">
+                <div class="lg:w-1/2 relative overflow-hidden animate-slide-up">
                     <div class="absolute inset-0 bg-gradient-to-br from-sidebar/80 to-sidebar/40 z-10"></div>
                     <img src="../assets/images/contact.jpeg" alt="Purida Kumrak"
                         class="w-full h-64 lg:h-full object-cover">
@@ -186,8 +186,10 @@
                 <!-- Right Side - Contact Information -->
                 <div class="lg:w-1/2 p-6 md:p-12 flex flex-col justify-center bg-main-bg">
                     <div class="max-w-md mx-auto w-full">
-                        <h2 class="text-xl md:text-2xl font-bold text-sidebar mb-2">ติดต่อฉัน</h2>
-                        <p class="text-sidebar/60 mb-8">สามารถติดต่อได้ผ่านช่องทางด้านล่างนี้</p>
+                        <h2 class="text-xl md:text-2xl font-bold text-sidebar mb-2 animate-slide-up"
+                            style="transition-delay: 0.1s;">ติดต่อฉัน</h2>
+                        <p class="text-sidebar/60 mb-8 animate-slide-up" style="transition-delay: 0.2s;">
+                            สามารถติดต่อได้ผ่านช่องทางด้านล่างนี้</p>
 
                         <!-- Contact Items -->
                         <div class="space-y-4">
@@ -278,6 +280,51 @@
                 toast.classList.add('translate-y-20', 'opacity-0');
             }, 2000);
         }
+
+        // --- Animations on Scroll ---
+        document.addEventListener('DOMContentLoaded', () => {
+            const animateElements = document.querySelectorAll('.animate-slide-up, .contact-card');
+
+            animateElements.forEach((el, index) => {
+                // Ignore those that already have specific inline delays if any
+                if (!el.style.transitionDelay && el.classList.contains('contact-card')) {
+                    el.style.transitionDelay = `${0.3 + (index * 0.1)}s`;
+                }
+
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                // We keep the transition for transform, opacity. The contact card already has `transition: all` in CSS
+                // so we just add a specific transition or let CSS handle it. 
+                // Using JS to ensure it overrides initially.
+                el.style.transition = `opacity 0.6s ease-out, transform 0.6s ease-out`;
+
+                // For contact cards to retain hover ability, we will remove inline transform after animation finishes
+                el.addEventListener('transitionend', function handler(e) {
+                    if (e.propertyName === 'opacity') {
+                        el.style.transition = ''; // Reset to let CSS hover take over
+                        el.removeEventListener('transitionend', handler);
+                    }
+                });
+            });
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            animateElements.forEach(el => observer.observe(el));
+        });
     </script>
 </body>
 

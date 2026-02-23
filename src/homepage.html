@@ -245,6 +245,67 @@
 
                 </div>
             </section>
+
+            <!-- Teaching Schedule -->
+            <section class="pb-16">
+                <div class="mb-8">
+                    <h2 class="text-xl font-bold text-sidebar mb-2">ตารางสอน</h2>
+                    <p class="text-sidebar/60">ตารางการปฏิบัติงานสอนและกิจกรรม</p>
+                </div>
+                <div class="bg-white p-4 md:p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
+                    <img src="../assets/images/table/t1.jpg" alt="ตารางสอน"
+                        class="w-full h-auto rounded-xl border border-gray-100">
+                </div>
+            </section>
+
+            <!-- Certificates -->
+            <section class="pb-16">
+                <div class="mb-8">
+                    <h2 class="text-xl font-bold text-sidebar mb-2">เกียรติบัตร</h2>
+                    <p class="text-sidebar/60">ความภาคภูมิใจและผลงานที่ผ่านมา</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div
+                        class="bg-white p-2 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 flex flex-col h-full">
+                        <img src="../assets/images/certificate/c1.jpg" alt="เกียรติบัตร 1"
+                            class="w-full h-auto rounded-xl border border-gray-100">
+                        <div class="p-3 mt-2 flex-grow flex flex-col justify-between">
+                            <div>
+                                <h3 class="font-bold text-sidebar text-[15px] leading-tight mb-1">
+                                    การอบรมปฏิบัติงานครู "On the Job Training"</h3>
+                                <p class="text-xs text-sidebar/70 line-clamp-3">
+                                    เพื่อประสิทธิภาพในการปฏิบัติงานวิชาการในโรงเรียนเฉลิมขวัญสตรี ปีการศึกษา 2568</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="bg-white p-2 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 flex flex-col h-full">
+                        <img src="../assets/images/certificate/c2.jpg" alt="เกียรติบัตร 2"
+                            class="w-full h-auto rounded-xl border border-gray-100">
+                        <div class="p-3 mt-2 flex-grow flex flex-col justify-between">
+                            <div>
+                                <h3 class="font-bold text-sidebar text-[15px] leading-tight mb-1">
+                                    ครูที่ปรึกษาผู้สนับสนุนนักเรียนเรียนดีเด่น ระดับเพชร</h3>
+                                <p class="text-xs text-sidebar/70 line-clamp-3">
+                                    ประจำปีการศึกษา 2568 โรงเรียนเฉลิมขวัญสตรี</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="bg-white p-2 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 flex flex-col h-full">
+                        <img src="../assets/images/certificate/c3.jpg" alt="เกียรติบัตร 3"
+                            class="w-full h-auto rounded-xl border border-gray-100">
+                        <div class="p-3 mt-2 flex-grow flex flex-col justify-between">
+                            <div>
+                                <h3 class="font-bold text-sidebar text-[15px] leading-tight mb-1">
+                                    กรรมการตัดสินการประกวดการศึกษาค้นคว้าอิสระ</h3>
+                                <p class="text-xs text-sidebar/70 line-clamp-3">
+                                    การนำเสนอผลงานการศึกษาค้นคว้าอิสระและเผยแพร่องค์ความรู้สู่สาธารณชน (IS)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </main>
     </div>
 
@@ -258,6 +319,38 @@
             hamburgerIcon.style.display = hamburgerIcon.style.display === 'none' ? '' : 'none';
             closeIcon.style.display = closeIcon.style.display === 'none' ? '' : 'none';
         }
+
+        // --- Animations on Scroll ---
+        document.addEventListener('DOMContentLoaded', () => {
+            // Apply initial states to elements we want to animate
+            const animateElements = document.querySelectorAll('.bg-white.rounded-2xl, section h2, section p.text-sidebar\\/60, .flex.gap-4');
+
+            animateElements.forEach((el, index) => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = `opacity 0.6s ease-out, transform 0.6s ease-out`;
+                // Add slight stagger
+                el.style.transitionDelay = `${(index % 3) * 0.15}s`;
+            });
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.15
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            animateElements.forEach(el => observer.observe(el));
+        });
     </script>
 </body>
 
