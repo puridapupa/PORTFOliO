@@ -7,6 +7,7 @@
     <title>Portfolio - Home</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="../assets/css/custom_background.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style type="text/tailwindcss">
         @theme {
             --color-sidebar: #705C53;
@@ -23,13 +24,10 @@
         style="background: linear-gradient(135deg, #705C53 0%, #4A3F38 100%)">
         <div class="flex items-center justify-between px-4 py-3">
             <a href="homepage.html" class="text-white font-bold text-lg">Portfolio</a>
-            <button id="hamburgerBtn" onclick="toggleMobileMenu()" class="text-white p-2">
-                <svg id="hamburgerIcon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-                <svg id="closeIcon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                </svg>
+            <button id="hamburgerBtn" onclick="toggleMobileMenu()"
+                class="text-white p-2 text-xl w-10 h-10 flex items-center justify-center">
+                <i id="hamburgerIcon" class="fa fa-bars"></i>
+                <i id="closeIcon" class="fa fa-times" style="display:none"></i>
             </button>
         </div>
         <!-- Mobile Menu Dropdown -->
@@ -110,13 +108,13 @@
                     <div class="space-y-6 order-2 lg:order-1">
                         <p class="text-sidebar/70 text-2xl font-medium">Hello, My Name is</p>
 
-                        <h2 class="text-5xl md:text-7xl font-bold text-sidebar leading-tight">
+                        <h2 class="text-3xl md:text-4xl font-bold text-sidebar leading-tight">
                             Purida Kumrak
                         </h2>
 
                         <p class="text-sidebar/70 text-lg font-medium">(นางสาวปูริดา คุ้มรักษ์, รหัสนิสิต 65411979)</p>
 
-                        <p class="text-xl md:text-2xl text-sidebar/80 max-w-2xl leading-relaxed">
+                        <p class="text-xl md:text-xl text-sidebar/80 max-w-xl leading-relaxed">
                             นักศึกษาฝึกประสบการณ์วิชาชีพครูชั้นปีที่ 4 คณะศึกษาศาสตร์
                             <br>สาขาเทคโนโลยีและการสื่อสารศึกษา มหาวิทยาลัยนเรศวร
                         </p>
@@ -161,7 +159,7 @@
             <!-- Teaching Experience Timeline -->
             <section class="pt-4 pb-16">
                 <div class="mb-8">
-                    <h2 class="text-3xl font-bold text-sidebar mb-2">ประวัติการฝึกประสบการณ์วิชาชีพครู</h2>
+                    <h2 class="text-xl font-bold text-sidebar mb-2">ประวัติการฝึกประสบการณ์วิชาชีพครู</h2>
                     <p class="text-sidebar/60">ประสบการณ์ฝึกสอนตลอด 4 ปีการศึกษา</p>
                 </div>
 
@@ -257,8 +255,8 @@
             const closeIcon = document.getElementById('closeIcon');
 
             menu.classList.toggle('hidden');
-            hamburgerIcon.classList.toggle('hidden');
-            closeIcon.classList.toggle('hidden');
+            hamburgerIcon.style.display = hamburgerIcon.style.display === 'none' ? '' : 'none';
+            closeIcon.style.display = closeIcon.style.display === 'none' ? '' : 'none';
         }
     </script>
 </body>

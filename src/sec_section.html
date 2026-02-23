@@ -7,6 +7,7 @@
     <title>ด้านระบบดูแลช่วยเหลือนักเรียน - Portfolio</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="../assets/css/custom_background.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style type="text/tailwindcss">
         @theme {
             --color-sidebar: #705C53;
@@ -324,13 +325,10 @@
         style="background: linear-gradient(135deg, #705C53 0%, #4A3F38 100%)">
         <div class="flex items-center justify-between px-4 py-3">
             <a href="homepage.html" class="text-white font-bold text-lg">Portfolio</a>
-            <button id="hamburgerBtn" onclick="toggleMobileMenu()" class="text-white p-2">
-                <svg id="hamburgerIcon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-                <svg id="closeIcon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                </svg>
+            <button id="hamburgerBtn" onclick="toggleMobileMenu()"
+                class="text-white p-2 text-xl w-10 h-10 flex items-center justify-center">
+                <i id="hamburgerIcon" class="fa fa-bars"></i>
+                <i id="closeIcon" class="fa fa-times" style="display:none"></i>
             </button>
         </div>
         <!-- Mobile Menu Dropdown -->
@@ -402,7 +400,7 @@
         <!-- Main Content -->
         <main class="flex-1 md:ml-64 p-6 md:p-12">
             <header class="mb-12">
-                <h1 class="text-4xl md:text-5xl font-bold text-sidebar mb-4">2. ด้านระบบดูแลช่วยเหลือนักเรียน</h1>
+                <h1 class="text-2xl md:text-3xl font-bold text-sidebar mb-4">2. ด้านระบบดูแลช่วยเหลือนักเรียน</h1>
                 <p class="text-lg text-sidebar/70">รวบรวมผลงานด้านการดูแลและช่วยเหลือนักเรียน</p>
             </header>
 
@@ -453,7 +451,8 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
                         <!-- Left: Photo Carousel -->
                         <div>
-                            <p class="text-sm font-semibold text-sidebar/70 uppercase tracking-wide mb-3">📸 ภาพกิจกรรม
+                            <p class="text-sm font-semibold text-sidebar/70 uppercase tracking-wide mb-3"><i
+                                    class="fa fa-camera mr-1"></i> ภาพกิจกรรม
                             </p>
                             <!-- Slides สร้างอัตโนมัติจาก sec22Config ด้านล่าง -->
                             <div class="carousel-container" id="carousel2">
@@ -490,13 +489,14 @@
 
                         <!-- Right: PDF Viewer -->
                         <div>
-                            <p class="text-sm font-semibold text-sidebar/70 uppercase tracking-wide mb-3">📄
+                            <p class="text-sm font-semibold text-sidebar/70 uppercase tracking-wide mb-3"><i
+                                    class="fa fa-file-text-o mr-1"></i>
                                 เอกสารประกอบ</p>
                             <div class="rounded-xl overflow-hidden border border-btn-primary shadow-sm"
                                 style="height: 420px;">
                                 <div class="flex items-center gap-2 px-4 py-2 text-sm font-medium text-sidebar"
                                     style="background: #EDDFE0;">
-                                    <span>📋</span>
+                                    <span><i class="fa fa-clipboard mr-1"></i></span>
                                     <span>แบบรายงานผลการจัดประชุมผู้ปกครองระดับห้องเรียน</span>
                                 </div>
                                 <iframe
@@ -733,8 +733,8 @@
             const closeIcon = document.getElementById('closeIcon');
 
             menu.classList.toggle('hidden');
-            hamburgerIcon.classList.toggle('hidden');
-            closeIcon.classList.toggle('hidden');
+            hamburgerIcon.style.display = hamburgerIcon.style.display === 'none' ? '' : 'none';
+            closeIcon.style.display = closeIcon.style.display === 'none' ? '' : 'none';
         }
 
         // Carousel functionality

@@ -7,7 +7,7 @@
     <title>ติดต่อฉัน - Portfolio</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="../assets/css/custom_background.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style type="text/tailwindcss">
         @theme {
             --color-sidebar: #705C53;
@@ -93,13 +93,10 @@
         style="background: linear-gradient(135deg, #705C53 0%, #4A3F38 100%)">
         <div class="flex items-center justify-between px-4 py-3">
             <a href="homepage.html" class="text-white font-bold text-lg">Portfolio</a>
-            <button id="hamburgerBtn" onclick="toggleMobileMenu()" class="text-white p-2">
-                <svg id="hamburgerIcon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-                <svg id="closeIcon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                </svg>
+            <button id="hamburgerBtn" onclick="toggleMobileMenu()"
+                class="text-white p-2 text-xl w-10 h-10 flex items-center justify-center">
+                <i id="hamburgerIcon" class="fa fa-bars"></i>
+                <i id="closeIcon" class="fa fa-times" style="display:none"></i>
             </button>
         </div>
         <!-- Mobile Menu Dropdown -->
@@ -181,7 +178,7 @@
 
                     <!-- Overlay Content on Image -->
                     <div class="absolute inset-0 z-20 flex flex-col justify-end p-8 lg:p-12">
-                        <h1 class="text-3xl lg:text-5xl font-bold text-white mb-2">Purida Kumrak</h1>
+                        <h1 class="text-xl lg:text-3xl font-bold text-white mb-2">Purida Kumrak</h1>
 
                     </div>
                 </div>
@@ -189,7 +186,7 @@
                 <!-- Right Side - Contact Information -->
                 <div class="lg:w-1/2 p-6 md:p-12 flex flex-col justify-center bg-main-bg">
                     <div class="max-w-md mx-auto w-full">
-                        <h2 class="text-3xl md:text-4xl font-bold text-sidebar mb-2">ติดต่อฉัน</h2>
+                        <h2 class="text-xl md:text-2xl font-bold text-sidebar mb-2">ติดต่อฉัน</h2>
                         <p class="text-sidebar/60 mb-8">สามารถติดต่อได้ผ่านช่องทางด้านล่างนี้</p>
 
                         <!-- Contact Items -->
@@ -198,7 +195,7 @@
                             <!-- Phone -->
                             <a href="tel:0986168387" class="contact-card flex items-center gap-4 group">
                                 <div class="icon-wrapper phone-icon">
-                                    <i class="fas fa-phone"></i>
+                                    <i class="fa fa-phone"></i>
                                 </div>
                                 <div class="flex-1">
                                     <p class="text-sm text-sidebar/60">เบอร์โทรศัพท์</p>
@@ -207,14 +204,14 @@
                                         098-616-8387</p>
                                 </div>
                                 <i
-                                    class="fas fa-arrow-right text-sidebar/30 group-hover:text-sidebar transition-colors"></i>
+                                    class="fa fa-angle-right text-sidebar/30 group-hover:text-sidebar transition-colors"></i>
                             </a>
 
                             <!-- LINE -->
                             <div class="contact-card flex items-center gap-4 cursor-pointer group"
                                 onclick="copyToClipboard('purida1234')">
                                 <div class="icon-wrapper line-icon">
-                                    <i class="fab fa-line"></i>
+                                    <i class="fa fa-comment"></i>
                                 </div>
                                 <div class="flex-1">
                                     <p class="text-sm text-sidebar/60">LINE ID</p>
@@ -229,7 +226,7 @@
                             <!-- Email -->
                             <a href="mailto:Purida.pupa@gmail.com" class="contact-card flex items-center gap-4 group">
                                 <div class="icon-wrapper email-icon">
-                                    <i class="fas fa-envelope"></i>
+                                    <i class="fa fa-envelope"></i>
                                 </div>
                                 <div class="flex-1">
                                     <p class="text-sm text-sidebar/60">E-mail</p>
@@ -238,7 +235,7 @@
                                         Purida.pupa@gmail.com</p>
                                 </div>
                                 <i
-                                    class="fas fa-arrow-right text-sidebar/30 group-hover:text-sidebar transition-colors"></i>
+                                    class="fa fa-angle-right text-sidebar/30 group-hover:text-sidebar transition-colors"></i>
                             </a>
 
                         </div>
@@ -252,7 +249,7 @@
     <!-- Toast Notification -->
     <div id="toast"
         class="fixed bottom-6 right-6 bg-sidebar text-white px-6 py-3 rounded-xl shadow-lg transform translate-y-20 opacity-0 transition-all duration-300">
-        <i class="fas fa-check-circle mr-2"></i>
+        <i class="fa fa-check-circle mr-2"></i>
         <span>คัดลอกแล้ว!</span>
     </div>
 
@@ -263,8 +260,8 @@
             const closeIcon = document.getElementById('closeIcon');
 
             menu.classList.toggle('hidden');
-            hamburgerIcon.classList.toggle('hidden');
-            closeIcon.classList.toggle('hidden');
+            hamburgerIcon.style.display = hamburgerIcon.style.display === 'none' ? '' : 'none';
+            closeIcon.style.display = closeIcon.style.display === 'none' ? '' : 'none';
         }
 
         function copyToClipboard(text) {
