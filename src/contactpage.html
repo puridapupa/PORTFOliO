@@ -16,6 +16,39 @@
             --color-main-bg: #F5F5F7;
             --color-btn-primary: #EDDFE0;
             --color-btn-secondary: #B7B7B7;
+            --color-accent: #D98359;
+            --color-accent-light: #E3A88D;
+        }
+
+        .animate-blob {
+            animation: blob 12s infinite alternate ease-in-out;
+        }
+        .animation-delay-2000 {
+            animation-delay: 2s;
+        }
+        .animation-delay-4000 {
+            animation-delay: 4s;
+        }
+        @keyframes blob {
+            0% { transform: translate(0px, 0px) scale(1); }
+            33% { transform: translate(30px, -50px) scale(1.1); }
+            66% { transform: translate(-20px, 20px) scale(0.9); }
+            100% { transform: translate(0px, 0px) scale(1); }
+        }
+
+        /* Glassmorphism Classes */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 8px 32px rgba(112, 92, 83, 0.08);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .glass-card:hover {
+            box-shadow: 0 15px 40px rgba(112, 92, 83, 0.15);
+            border-color: rgba(255, 255, 255, 1);
+            transform: translateY(-6px);
         }
     </style>
     <style>
@@ -89,29 +122,43 @@
     </style>
 </head>
 
-<body class="bg-main-bg min-h-screen">
+<body class="bg-main-bg min-h-screen relative overflow-x-hidden">
+    <!-- Modern Animated Background Elements -->
+    <div class="fixed inset-0 z-[0] overflow-hidden pointer-events-none w-full h-full">
+        <div
+            class="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-[#E3A88D] rounded-full mix-blend-multiply filter blur-[100px] opacity-30 animate-blob">
+        </div>
+        <div
+            class="absolute top-[20%] right-[-10%] w-[40%] h-[40%] bg-sidebar rounded-full mix-blend-multiply filter blur-[120px] opacity-20 animate-blob animation-delay-2000">
+        </div>
+        <div
+            class="absolute bottom-[-20%] left-[20%] w-[60%] h-[60%] bg-[#D98359] rounded-full mix-blend-multiply filter blur-[150px] opacity-20 animate-blob animation-delay-4000">
+        </div>
+    </div>
     <!-- Mobile Navbar -->
-    <nav class="fixed top-0 left-0 right-0 z-50 md:hidden glass-nav" style="">
+    <nav class="fixed top-0 left-0 right-0 z-50 md:hidden bg-sidebar/90 backdrop-blur-md shadow-lg border-b border-white/10"
+        style="background: linear-gradient(135deg, rgba(112,92,83,0.95) 0%, rgba(74,63,56,0.95) 100%)">
         <div class="flex items-center justify-between px-4 py-3">
-            <a href="homepage.html" class="text-white font-bold text-lg">Portfolio</a>
+            <a href="homepage.html" class="text-white font-bold text-lg tracking-wide">Purida.</a>
             <button id="hamburgerBtn" onclick="toggleMobileMenu()"
-                class="text-white p-2 text-xl w-10 h-10 flex items-center justify-center">
+                class="text-white p-2 text-xl w-10 h-10 flex items-center justify-center hover:bg-white/10 rounded-lg transition-colors">
                 <i id="hamburgerIcon" class="fa fa-bars"></i>
                 <i id="closeIcon" class="fa fa-times" style="display:none"></i>
             </button>
         </div>
         <!-- Mobile Menu Dropdown -->
-        <div id="mobileMenu" class="hidden glass-nav">
-            <div class="px-4 py-3 space-y-1">
-                <a href="homepage.html" class="block py-3 px-4 rounded-lg text-white/80 hover:bg-white/10">Home</a>
+        <div id="mobileMenu" class="hidden bg-sidebar/95 backdrop-blur-xl border-b border-white/10 shadow-2xl">
+            <div class="px-4 py-4 space-y-2">
+                <a href="homepage.html"
+                    class="block py-3 px-4 rounded-xl text-white/80 hover:bg-white/10 hover:text-white transition-all">HOME</a>
                 <a href="first_section.html"
-                    class="block py-3 px-4 rounded-lg text-white/80 hover:bg-white/10">ด้านการจัดการเรียนรู้</a>
+                    class="block py-3 px-4 rounded-xl text-white/80 hover:bg-white/10 hover:text-white transition-all">ด้านการจัดการเรียนรู้</a>
                 <a href="sec_section.html"
-                    class="block py-3 px-4 rounded-lg text-white/80 hover:bg-white/10">ด้านระบบดูแลช่วยเหลือนักเรียน</a>
+                    class="block py-3 px-4 rounded-xl text-white/80 hover:bg-white/10 hover:text-white transition-all">ด้านระบบดูแลช่วยเหลือนักเรียน</a>
                 <a href="third_section.html"
-                    class="block py-3 px-4 rounded-lg text-white/80 hover:bg-white/10">ด้านจรรยาบรรณวิชาชีพครู</a>
+                    class="block py-3 px-4 rounded-xl text-white/80 hover:bg-white/10 hover:text-white transition-all">ด้านจรรยาบรรณวิชาชีพครู</a>
                 <a href="contactpage.html"
-                    class="block py-3 px-4 rounded-lg bg-white/10 text-white font-medium">ติดต่อฉัน</a>
+                    class="block py-3 px-4 rounded-xl bg-white/15 text-white font-medium border border-white/10">ติดต่อฉัน</a>
             </div>
         </div>
     </nav>
@@ -119,132 +166,149 @@
     <div class="flex min-h-screen pt-14 md:pt-0">
         <!-- Sidebar (Desktop Only) -->
         <aside
-            class="fixed left-0 top-0 h-full w-64 text-white p-6 flex-col transition-transform duration-300 z-40 hidden md:flex glass-nav shadow-2xl"
-            style="background: rgba(112, 92, 83, 0.95); backdrop-filter: blur(20px);">
-            <div class="mb-12">
-                <h1 class="text-2xl font-bold tracking-tight">Portfolio</h1>
-                <p class="text-sm text-white/70 mt-1">Purida Kumrak</p>
+            class="fixed left-0 top-0 h-full w-72 text-white p-8 flex-col transition-transform duration-300 z-40 hidden md:flex border-r border-white/10 shadow-2xl"
+            style="background: linear-gradient(180deg, #705C53 0%, #5D4B44 40%, #4A3F38 70%, #3D322C 100%)">
+            <!-- Logo / Brand -->
+            <div class="mb-14 relative group">
+                <div
+                    class="absolute -left-4 w-1.5 h-full bg-btn-primary rounded-r-lg transform origin-left scale-y-0 group-hover:scale-y-100 transition-transform duration-300">
+                </div>
+                <h1 class="text-3xl font-extrabold tracking-tight">Purida<span class="text-btn-primary">.</span></h1>
+                <p class="text-sm text-white/60 mt-1 uppercase tracking-widest font-medium">Portfolio</p>
             </div>
 
-            <nav class="flex-1">
-                <ul class="space-y-2">
+            <!-- Navigation -->
+            <nav class="flex-1 w-full">
+                <ul class="space-y-3">
                     <li>
                         <a href="homepage.html"
-                            class="block py-3 px-4 rounded-lg hover:bg-white/10 text-white/80 hover:text-white transition-all duration-200">
-                            Home
+                            class="flex items-center gap-3 py-3 px-4 rounded-xl hover:bg-white/5 text-white/70 hover:text-white transition-all duration-300 group">
+                            <i
+                                class="fa fa-home border border-white/10 p-2 rounded-lg group-hover:border-white/20 transition-colors"></i>
+                            HOME
                         </a>
                     </li>
                     <li>
                         <a href="first_section.html"
-                            class="block py-3 px-4 rounded-lg hover:bg-white/10 text-white/80 hover:text-white transition-all duration-200">
+                            class="flex items-center gap-3 py-3 px-4 rounded-xl hover:bg-white/5 text-white/70 hover:text-white transition-all duration-300 group">
+                            <i
+                                class="fa fa-book border border-white/10 p-2 rounded-lg group-hover:border-white/20 transition-colors"></i>
                             ด้านการจัดการเรียนรู้
                         </a>
                     </li>
                     <li>
                         <a href="sec_section.html"
-                            class="block py-3 px-4 rounded-lg hover:bg-white/10 text-white/80 hover:text-white transition-all duration-200">
-                            ด้านระบบดูแลช่วยเหลือนักเรียน
+                            class="flex items-center gap-3 py-3 px-4 rounded-xl hover:bg-white/5 text-white/70 hover:text-white transition-all duration-300 group">
+                            <i
+                                class="fa fa-users border border-white/10 p-2 rounded-lg group-hover:border-white/20 transition-colors"></i>
+                            ด้านระบบดูแลนักเรียน
                         </a>
                     </li>
                     <li>
                         <a href="third_section.html"
-                            class="block py-3 px-4 rounded-lg hover:bg-white/10 text-white/80 hover:text-white transition-all duration-200">
-                            ด้านจรรยาบรรณวิชาชีพครู
+                            class="flex items-center gap-3 py-3 px-4 rounded-xl hover:bg-white/5 text-white/70 hover:text-white transition-all duration-300 group">
+                            <i
+                                class="fa fa-balance-scale border border-white/10 p-2 rounded-lg group-hover:border-white/20 transition-colors"></i>
+                            ด้านจรรยาบรรณ
                         </a>
                     </li>
-                    <li>
+                    <li class="pt-4">
                         <a href="contactpage.html"
-                            class="block py-3 px-4 rounded-lg bg-white/10 text-white font-medium transition-all duration-200">
+                            class="flex items-center gap-3 py-3.5 px-4 rounded-xl bg-white/15 text-white font-medium shadow-inner border border-white/10 backdrop-blur-sm transition-all duration-300 group">
+                            <i class="fa fa-envelope-o p-2 border border-white/20 rounded-lg bg-white/5"></i>
                             ติดต่อฉัน
                         </a>
                     </li>
                 </ul>
             </nav>
 
-            <div class="pt-6 border-t border-white/20">
-                <p class="text-xs text-white/50">© 2026 Portfolio</p>
+            <!-- Footer -->
+            <div class="pt-6 border-t border-white/10">
+                <p class="text-xs text-white/40 text-center font-medium">© 2026 Purida Kumrak</p>
             </div>
         </aside>
 
         <!-- Main Content -->
-        <main class="flex-1 md:ml-64">
-            <!-- Hero Section with Split Layout -->
-            <div class="min-h-screen flex flex-col lg:flex-row">
+        <main class="flex-1 md:ml-72">
+            <div class="max-w-7xl mx-auto w-full">
+                <!-- Hero Section with Split Layout -->
+                <div class="min-h-screen flex flex-col lg:flex-row">
 
-                <!-- Left Side - Large Image -->
-                <div class="lg:w-1/2 relative overflow-hidden animate-slide-up">
-                    <div class="absolute inset-0 bg-gradient-to-br from-sidebar/80 to-sidebar/40 z-10"></div>
-                    <img src="../assets/images/contact.jpeg" alt="Purida Kumrak"
-                        class="w-full h-64 lg:h-full object-cover">
+                    <!-- Left Side - Large Image -->
+                    <div class="lg:w-1/2 relative overflow-hidden animate-slide-up">
+                        <div class="absolute inset-0 bg-gradient-to-br from-sidebar/80 to-sidebar/40 z-10"></div>
+                        <img src="../assets/images/contact.jpeg" alt="Purida Kumrak"
+                            class="w-full h-64 lg:h-full object-cover">
 
-                    <!-- Overlay Content on Image -->
-                    <div class="absolute inset-0 z-20 flex flex-col justify-end p-8 lg:p-12">
-                        <h1 class="text-xl lg:text-3xl font-bold text-white mb-2">Purida Kumrak</h1>
-
-                    </div>
-                </div>
-
-                <!-- Right Side - Contact Information -->
-                <div class="lg:w-1/2 p-6 md:p-12 flex flex-col justify-center bg-main-bg">
-                    <div class="max-w-md mx-auto w-full">
-                        <h2 class="text-xl md:text-2xl font-bold text-sidebar mb-2 animate-slide-up"
-                            style="transition-delay: 0.1s;">ติดต่อฉัน</h2>
-                        <p class="text-sidebar/60 mb-8 animate-slide-up" style="transition-delay: 0.2s;">
-                            สามารถติดต่อได้ผ่านช่องทางด้านล่างนี้</p>
-
-                        <!-- Contact Items -->
-                        <div class="space-y-4">
-
-                            <!-- Phone -->
-                            <a href="tel:0986168387" class="contact-card flex items-center gap-4 group">
-                                <div class="icon-wrapper phone-icon">
-                                    <i class="fa fa-phone"></i>
-                                </div>
-                                <div class="flex-1">
-                                    <p class="text-sm text-sidebar/60">เบอร์โทรศัพท์</p>
-                                    <p
-                                        class="text-lg font-bold text-sidebar group-hover:text-emerald-600 transition-colors">
-                                        098-616-8387</p>
-                                </div>
-                                <i
-                                    class="fa fa-angle-right text-sidebar/30 group-hover:text-sidebar transition-colors"></i>
-                            </a>
-
-                            <!-- LINE -->
-                            <div class="contact-card flex items-center gap-4 cursor-pointer group"
-                                onclick="copyToClipboard('purida1234')">
-                                <div class="icon-wrapper line-icon">
-                                    <i class="fa fa-comment"></i>
-                                </div>
-                                <div class="flex-1">
-                                    <p class="text-sm text-sidebar/60">LINE ID</p>
-                                    <p
-                                        class="text-lg font-bold text-sidebar group-hover:text-green-600 transition-colors">
-                                        purida1234</p>
-                                </div>
-                                <span
-                                    class="text-xs text-sidebar/50 group-hover:text-sidebar transition-colors">คลิกเพื่อคัดลอก</span>
-                            </div>
-
-                            <!-- Email -->
-                            <a href="mailto:Purida.pupa@gmail.com" class="contact-card flex items-center gap-4 group">
-                                <div class="icon-wrapper email-icon">
-                                    <i class="fa fa-envelope"></i>
-                                </div>
-                                <div class="flex-1">
-                                    <p class="text-sm text-sidebar/60">E-mail</p>
-                                    <p
-                                        class="text-base font-bold text-sidebar group-hover:text-pink-500 transition-colors break-all">
-                                        Purida.pupa@gmail.com</p>
-                                </div>
-                                <i
-                                    class="fa fa-angle-right text-sidebar/30 group-hover:text-sidebar transition-colors"></i>
-                            </a>
-
+                        <!-- Overlay Content on Image -->
+                        <div class="absolute inset-0 z-20 flex flex-col justify-end p-8 lg:p-12">
+                            <h1 class="text-xl lg:text-3xl font-bold text-white mb-2">Purida Kumrak</h1>
                         </div>
                     </div>
-                </div>
 
+                    <!-- Right Side - Contact Information -->
+                    <div class="lg:w-1/2 p-6 md:p-12 flex flex-col justify-center bg-main-bg">
+                        <div class="max-w-md mx-auto w-full">
+                            <h2 class="text-xl md:text-2xl font-bold text-sidebar mb-2 animate-slide-up"
+                                style="transition-delay: 0.1s;">ติดต่อฉัน</h2>
+                            <p class="text-sidebar/60 mb-8 animate-slide-up" style="transition-delay: 0.2s;">
+                                สามารถติดต่อได้ผ่านช่องทางด้านล่างนี้</p>
+
+                            <!-- Contact Items -->
+                            <div class="space-y-4">
+
+                                <!-- Phone -->
+                                <a href="tel:0986168387" class="contact-card flex items-center gap-4 group">
+                                    <div class="icon-wrapper phone-icon">
+                                        <i class="fa fa-phone"></i>
+                                    </div>
+                                    <div class="flex-1">
+                                        <p class="text-sm text-sidebar/60">เบอร์โทรศัพท์</p>
+                                        <p
+                                            class="text-lg font-bold text-sidebar group-hover:text-emerald-600 transition-colors">
+                                            098-616-8387</p>
+                                    </div>
+                                    <i
+                                        class="fa fa-angle-right text-sidebar/30 group-hover:text-sidebar transition-colors"></i>
+                                </a>
+
+                                <!-- LINE -->
+                                <div class="contact-card flex items-center gap-4 cursor-pointer group"
+                                    onclick="copyToClipboard('purida1234')">
+                                    <div class="icon-wrapper line-icon">
+                                        <i class="fa fa-comment"></i>
+                                    </div>
+                                    <div class="flex-1">
+                                        <p class="text-sm text-sidebar/60">LINE ID</p>
+                                        <p
+                                            class="text-lg font-bold text-sidebar group-hover:text-green-600 transition-colors">
+                                            purida1234</p>
+                                    </div>
+                                    <span
+                                        class="text-xs text-sidebar/50 group-hover:text-sidebar transition-colors">คลิกเพื่อคัดลอก</span>
+                                </div>
+
+                                <!-- Email -->
+                                <a href="mailto:Purida.pupa@gmail.com"
+                                    class="contact-card flex items-center gap-4 group">
+                                    <div class="icon-wrapper email-icon">
+                                        <i class="fa fa-envelope"></i>
+                                    </div>
+                                    <div class="flex-1">
+                                        <p class="text-sm text-sidebar/60">E-mail</p>
+                                        <p
+                                            class="text-base font-bold text-sidebar group-hover:text-pink-500 transition-colors break-all">
+                                            Purida.pupa@gmail.com</p>
+                                    </div>
+                                    <i
+                                        class="fa fa-angle-right text-sidebar/30 group-hover:text-sidebar transition-colors"></i>
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
             </div>
         </main>
     </div>

@@ -16,6 +16,32 @@
             --color-main-bg: #F5F5F7;
             --color-btn-primary: #EDDFE0;
             --color-btn-secondary: #B7B7B7;
+            --color-accent: #D98359;
+            --color-accent-light: #E3A88D;
+        }
+
+        .animate-blob { animation: blob 12s infinite alternate ease-in-out; }
+        .animation-delay-2000 { animation-delay: 2s; }
+        .animation-delay-4000 { animation-delay: 4s; }
+        @keyframes blob {
+            0% { transform: translate(0px, 0px) scale(1); }
+            33% { transform: translate(30px, -50px) scale(1.1); }
+            66% { transform: translate(-20px, 20px) scale(0.9); }
+            100% { transform: translate(0px, 0px) scale(1); }
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 8px 32px rgba(112, 92, 83, 0.08);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .glass-card:hover {
+            box-shadow: 0 15px 40px rgba(112, 92, 83, 0.15);
+            border-color: rgba(255, 255, 255, 1);
+            transform: translateY(-6px);
         }
     </style>
     <style>
@@ -346,29 +372,43 @@
     </style>
 </head>
 
-<body class="bg-main-bg min-h-screen">
+<body class="bg-main-bg min-h-screen relative overflow-x-hidden">
+    <!-- Modern Animated Background Elements -->
+    <div class="fixed inset-0 z-[0] overflow-hidden pointer-events-none w-full h-full">
+        <div
+            class="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-[#E3A88D] rounded-full mix-blend-multiply filter blur-[100px] opacity-30 animate-blob">
+        </div>
+        <div
+            class="absolute top-[20%] right-[-10%] w-[40%] h-[40%] bg-sidebar rounded-full mix-blend-multiply filter blur-[120px] opacity-20 animate-blob animation-delay-2000">
+        </div>
+        <div
+            class="absolute bottom-[-20%] left-[20%] w-[60%] h-[60%] bg-[#D98359] rounded-full mix-blend-multiply filter blur-[150px] opacity-20 animate-blob animation-delay-4000">
+        </div>
+    </div>
     <!-- Mobile Navbar -->
-    <nav class="fixed top-0 left-0 right-0 z-50 md:hidden glass-nav" style="">
+    <nav class="fixed top-0 left-0 right-0 z-50 md:hidden bg-sidebar/90 backdrop-blur-md shadow-lg border-b border-white/10"
+        style="background: linear-gradient(135deg, rgba(112,92,83,0.95) 0%, rgba(74,63,56,0.95) 100%)">
         <div class="flex items-center justify-between px-4 py-3">
-            <a href="homepage.html" class="text-white font-bold text-lg">Portfolio</a>
+            <a href="homepage.html" class="text-white font-bold text-lg tracking-wide">Purida.</a>
             <button id="hamburgerBtn" onclick="toggleMobileMenu()"
-                class="text-white p-2 text-xl w-10 h-10 flex items-center justify-center">
+                class="text-white p-2 text-xl w-10 h-10 flex items-center justify-center hover:bg-white/10 rounded-lg transition-colors">
                 <i id="hamburgerIcon" class="fa fa-bars"></i>
                 <i id="closeIcon" class="fa fa-times" style="display:none"></i>
             </button>
         </div>
         <!-- Mobile Menu Dropdown -->
-        <div id="mobileMenu" class="hidden glass-nav">
-            <div class="px-4 py-3 space-y-1">
-                <a href="homepage.html" class="block py-3 px-4 rounded-lg text-white/80 hover:bg-white/10">Home</a>
+        <div id="mobileMenu" class="hidden bg-sidebar/95 backdrop-blur-xl border-b border-white/10 shadow-2xl">
+            <div class="px-4 py-4 space-y-2">
+                <a href="homepage.html"
+                    class="block py-3 px-4 rounded-xl text-white/80 hover:bg-white/10 hover:text-white transition-all">HOME</a>
                 <a href="first_section.html"
-                    class="block py-3 px-4 rounded-lg text-white/80 hover:bg-white/10">ด้านการจัดการเรียนรู้</a>
+                    class="block py-3 px-4 rounded-xl text-white/80 hover:bg-white/10 hover:text-white transition-all">ด้านการจัดการเรียนรู้</a>
                 <a href="sec_section.html"
-                    class="block py-3 px-4 rounded-lg bg-white/10 text-white font-medium">ด้านระบบดูแลช่วยเหลือนักเรียน</a>
+                    class="block py-3 px-4 rounded-xl bg-white/15 text-white font-medium border border-white/10">ด้านระบบดูแลช่วยเหลือนักเรียน</a>
                 <a href="third_section.html"
-                    class="block py-3 px-4 rounded-lg text-white/80 hover:bg-white/10">ด้านจรรยาบรรณวิชาชีพครู</a>
+                    class="block py-3 px-4 rounded-xl text-white/80 hover:bg-white/10 hover:text-white transition-all">ด้านจรรยาบรรณวิชาชีพครู</a>
                 <a href="contactpage.html"
-                    class="block py-3 px-4 rounded-lg text-white/80 hover:bg-white/10">ติดต่อฉัน</a>
+                    class="block py-3 px-4 rounded-xl text-white/80 hover:bg-white/10 hover:text-white transition-all">ติดต่อฉัน</a>
             </div>
         </div>
     </nav>
@@ -376,186 +416,216 @@
     <div class="flex min-h-screen pt-14 md:pt-0">
         <!-- Sidebar (Desktop Only) -->
         <aside
-            class="fixed left-0 top-0 h-full w-64 text-white p-6 flex-col transition-transform duration-300 z-40 hidden md:flex glass-nav shadow-2xl"
-            style="background: rgba(112, 92, 83, 0.95); backdrop-filter: blur(20px);">
-            <div class="mb-12">
-                <h1 class="text-2xl font-bold tracking-tight">Portfolio</h1>
-                <p class="text-sm text-white/70 mt-1">Purida Kumrak</p>
+            class="fixed left-0 top-0 h-full w-72 text-white p-8 flex-col transition-transform duration-300 z-40 hidden md:flex border-r border-white/10 shadow-2xl"
+            style="background: linear-gradient(180deg, #705C53 0%, #5D4B44 40%, #4A3F38 70%, #3D322C 100%)">
+            <!-- Logo / Brand -->
+            <div class="mb-14 relative group">
+                <div
+                    class="absolute -left-4 w-1.5 h-full bg-btn-primary rounded-r-lg transform origin-left scale-y-0 group-hover:scale-y-100 transition-transform duration-300">
+                </div>
+                <h1 class="text-3xl font-extrabold tracking-tight">Purida<span class="text-btn-primary">.</span></h1>
+                <p class="text-sm text-white/60 mt-1 uppercase tracking-widest font-medium">Portfolio</p>
             </div>
 
-            <nav class="flex-1">
-                <ul class="space-y-2">
+            <!-- Navigation -->
+            <nav class="flex-1 w-full">
+                <ul class="space-y-3">
                     <li>
                         <a href="homepage.html"
-                            class="block py-3 px-4 rounded-lg hover:bg-white/10 text-white/80 hover:text-white transition-all duration-200">
-                            Home
+                            class="flex items-center gap-3 py-3 px-4 rounded-xl hover:bg-white/5 text-white/70 hover:text-white transition-all duration-300 group">
+                            <i
+                                class="fa fa-home border border-white/10 p-2 rounded-lg group-hover:border-white/20 transition-colors"></i>
+                            HOME
                         </a>
                     </li>
                     <li>
                         <a href="first_section.html"
-                            class="block py-3 px-4 rounded-lg hover:bg-white/10 text-white/80 hover:text-white transition-all duration-200">
+                            class="flex items-center gap-3 py-3 px-4 rounded-xl hover:bg-white/5 text-white/70 hover:text-white transition-all duration-300 group">
+                            <i
+                                class="fa fa-book border border-white/10 p-2 rounded-lg group-hover:border-white/20 transition-colors"></i>
                             ด้านการจัดการเรียนรู้
                         </a>
                     </li>
                     <li>
                         <a href="sec_section.html"
-                            class="block py-3 px-4 rounded-lg bg-white/10 text-white font-medium transition-all duration-200">
-                            ด้านระบบดูแลช่วยเหลือนักเรียน
+                            class="flex items-center gap-3 py-3.5 px-4 rounded-xl bg-white/15 text-white font-medium shadow-inner border border-white/10 backdrop-blur-sm transition-all duration-300">
+                            <i class="fa fa-users border border-white/20 p-2 rounded-lg bg-white/5"></i>
+                            ด้านระบบดูแลนักเรียน
                         </a>
                     </li>
                     <li>
                         <a href="third_section.html"
-                            class="block py-3 px-4 rounded-lg hover:bg-white/10 text-white/80 hover:text-white transition-all duration-200">
-                            ด้านจรรยาบรรณวิชาชีพครู
+                            class="flex items-center gap-3 py-3 px-4 rounded-xl hover:bg-white/5 text-white/70 hover:text-white transition-all duration-300 group">
+                            <i
+                                class="fa fa-balance-scale border border-white/10 p-2 rounded-lg group-hover:border-white/20 transition-colors"></i>
+                            ด้านจรรยาบรรณ
                         </a>
                     </li>
-                    <li>
+                    <li class="pt-4">
                         <a href="contactpage.html"
-                            class="block py-3 px-4 rounded-lg hover:bg-white/10 text-white/80 hover:text-white transition-all duration-200">
+                            class="flex items-center gap-3 py-3 px-4 rounded-xl hover:bg-white/10 text-white/80 hover:text-white transition-all duration-300 border border-transparent hover:border-white/20 bg-white/5 group">
+                            <i class="fa fa-envelope-o p-2 transition-colors"></i>
                             ติดต่อฉัน
                         </a>
                     </li>
                 </ul>
             </nav>
 
-            <div class="pt-6 border-t border-white/20">
-                <p class="text-xs text-white/50">© 2026 Portfolio</p>
+            <!-- Footer -->
+            <div class="pt-6 border-t border-white/10">
+                <p class="text-xs text-white/40 text-center font-medium">© 2026 Purida Kumrak</p>
             </div>
         </aside>
 
         <!-- Main Content -->
-        <main class="flex-1 md:ml-64 p-6 md:p-12">
-            <header class="mb-12">
-                <h1 class="text-2xl md:text-3xl font-bold text-sidebar mb-4"><span class="text-gradient-earth">2.
-                        ด้านระบบดูแลช่วยเหลือนักเรียน</span></h1>
-                <p class="text-lg text-sidebar/70">รวบรวมผลงานด้านการดูแลและช่วยเหลือนักเรียน</p>
-            </header>
+        <main class="flex-1 md:ml-72 p-6 md:p-12">
+            <div class="max-w-7xl mx-auto w-full">
+                <!-- Page Header -->
+                <header class="mb-12">
+                    <h1 class="text-2xl md:text-3xl font-bold text-sidebar mb-4"><span class="text-gradient-earth">2.
+                            ด้านระบบดูแลช่วยเหลือนักเรียน</span></h1>
+                    <p class="text-lg text-sidebar/70">รวบรวมผลงานด้านการดูแลและช่วยเหลือนักเรียน</p>
+                </header>
+                <div class="space-y-12">
 
-            <div class="space-y-12">
+                    <!-- 2.1 หน้าที่ครูประจำชั้น -->
+                    <section
+                        class="glass-card rounded-2xl p-6 shadow-md card-hover-lift md:p-8 card-hover-lift relative z-10">
+                        <h2 class="text-2xl font-bold text-sidebar mb-6">2.1 หน้าที่ครูประจำชั้น</h2>
 
-                <!-- 2.1 หน้าที่ครูประจำชั้น -->
-                <section class="bg-white rounded-2xl p-6 shadow-md card-hover-lift md:p-8 card-hover-lift">
-                    <h2 class="text-2xl font-bold text-sidebar mb-6">2.1 หน้าที่ครูประจำชั้น</h2>
-
-                    <div class="carousel-container" id="carousel1">
-                        <div class="carousel-track">
-                            <div class="carousel-slide" onclick="openModal(0, 0)">
-                                <img src="../assets/images/section2/2.1/morning_1.jpg" alt="เช็คชื่อนักเรียนตอนเช้า">
-                                <div class="slide-overlay">
-                                    <p class="slide-title">เช็คชื่อนักเรียนตอนเช้า</p>
-                                    <p class="slide-hint">คลิกเพื่อดูรายละเอียด</p>
-                                </div>
-                            </div>
-                            <div class="carousel-slide" onclick="openModal(0, 1)">
-                                <img src="../assets/images/section2/2.1/pachim_1.jpg"
-                                    alt="พิธีปัจฉิมนิเทศนักเรียนชั้นมัธยมศึกษาปีที่ 3">
-                                <div class="slide-overlay">
-                                    <p class="slide-title">พิธีปัจฉิมนิเทศนักเรียนชั้นมัธยมศึกษาปีที่ 3</p>
-                                    <p class="slide-hint">คลิกเพื่อดูรายละเอียด</p>
-                                </div>
-                            </div>
-                            <div class="carousel-slide" onclick="openModal(0, 2)">
-                                <img src="../assets/images/section2/2.1/award_1.jpg"
-                                    alt="พิธีมอบรางวัลนักเรียนและครูดีเด่นชั้นมัธยมศึกษาปีที่ 3">
-                                <div class="slide-overlay">
-                                    <p class="slide-title">พิธีมอบรางวัลนักเรียนและครูดีเด่นชั้นมัธยมศึกษาปีที่ 3</p>
-                                    <p class="slide-hint">คลิกเพื่อดูรายละเอียด</p>
-                                </div>
-                            </div>
-                        </div>
-                        <button class="carousel-btn prev"
-                            onclick="event.stopPropagation(); moveSlide('carousel1', -1)">❮</button>
-                        <button class="carousel-btn next"
-                            onclick="event.stopPropagation(); moveSlide('carousel1', 1)">❯</button>
-                    </div>
-                    <div class="carousel-dots" id="carousel1-dots"></div>
-                </section>
-
-                <!-- 2.2 ส่งเสริมความสัมพันธ์กับผู้ปกครองและชุมชน -->
-                <section class="bg-white rounded-2xl p-6 shadow-md card-hover-lift md:p-8 card-hover-lift">
-                    <h2 class="text-2xl font-bold text-sidebar mb-6">2.2 ส่งเสริมความสัมพันธ์กับผู้ปกครองและชุมชน</h2>
-
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
-                        <!-- Left: Photo Carousel -->
-                        <div>
-                            <p class="text-sm font-semibold text-sidebar/70 uppercase tracking-wide mb-3"><i
-                                    class="fa fa-camera mr-1"></i> ภาพกิจกรรม
-                            </p>
-                            <!-- Slides สร้างอัตโนมัติจาก sec22Config ด้านล่าง -->
-                            <div class="carousel-container" id="carousel2">
-                                <div class="carousel-track" id="carousel2-track">
-                                    <div class="carousel-slide" onclick="openModal(1, 0)">
-                                        <img src="../assets/images/section2/2.2/IMG_5060.JPG" alt="งานประชุมผู้ปกครอง">
-                                        <div class="slide-overlay">
-                                            <p class="slide-title">งานประชุมผู้ปกครอง</p>
-                                            <p class="slide-hint">คลิกเพื่อดูรายละเอียด</p>
-                                        </div>
-                                    </div>
-                                    <div class="carousel-slide" onclick="openModal(1, 1)">
-                                        <img src="../assets/images/section2/2.2/IMG_5061.JPG" alt="งานประชุมผู้ปกครอง">
-                                        <div class="slide-overlay">
-                                            <p class="slide-title">งานประชุมผู้ปกครอง</p>
-                                            <p class="slide-hint">คลิกเพื่อดูรายละเอียด</p>
-                                        </div>
-                                    </div>
-                                    <div class="carousel-slide" onclick="openModal(1, 2)">
-                                        <img src="../assets/images/section2/2.2/IMG_5059.JPG" alt="งานประชุมผู้ปกครอง">
-                                        <div class="slide-overlay">
-                                            <p class="slide-title">งานประชุมผู้ปกครอง</p>
-                                            <p class="slide-hint">คลิกเพื่อดูรายละเอียด</p>
-                                        </div>
+                        <div class="carousel-container" id="carousel1">
+                            <div class="carousel-track">
+                                <div class="carousel-slide" onclick="openModal(0, 0)">
+                                    <img src="../assets/images/section2/2.1/morning_1.jpg"
+                                        alt="เช็คชื่อนักเรียนตอนเช้า">
+                                    <div class="slide-overlay">
+                                        <p class="slide-title">เช็คชื่อนักเรียนตอนเช้า</p>
+                                        <p class="slide-hint">คลิกเพื่อดูรายละเอียด</p>
                                     </div>
                                 </div>
-                                <button class="carousel-btn prev"
-                                    onclick="event.stopPropagation(); moveSlide('carousel2', -1)">❮</button>
-                                <button class="carousel-btn next"
-                                    onclick="event.stopPropagation(); moveSlide('carousel2', 1)">❯</button>
-                            </div>
-                            <div class="carousel-dots" id="carousel2-dots"></div>
-                        </div>
-
-                        <!-- Right: PDF Viewer -->
-                        <div>
-                            <p class="text-sm font-semibold text-sidebar/70 uppercase tracking-wide mb-3"><i
-                                    class="fa fa-file-text-o mr-1"></i>
-                                เอกสารประกอบ</p>
-                            <div class="rounded-xl overflow-hidden border border-btn-primary shadow-sm"
-                                style="height: 420px;">
-                                <div class="flex items-center gap-2 px-4 py-2 text-sm font-medium text-sidebar"
-                                    style="background: #EDDFE0;">
-                                    <span><i class="fa fa-clipboard mr-1"></i></span>
-                                    <span>แบบรายงานผลการจัดประชุมผู้ปกครองระดับห้องเรียน</span>
+                                <div class="carousel-slide" onclick="openModal(0, 1)">
+                                    <img src="../assets/images/section2/2.1/pachim_1.jpg"
+                                        alt="พิธีปัจฉิมนิเทศนักเรียนชั้นมัธยมศึกษาปีที่ 3">
+                                    <div class="slide-overlay">
+                                        <p class="slide-title">พิธีปัจฉิมนิเทศนักเรียนชั้นมัธยมศึกษาปีที่ 3</p>
+                                        <p class="slide-hint">คลิกเพื่อดูรายละเอียด</p>
+                                    </div>
                                 </div>
-                                <iframe
-                                    src="../assets/pdf_files/2.2/แบบรายงานผลการจัดประชุมผู้ปกครองระดับห้(1).pdf#view=FitH&toolbar=0"
-                                    class="w-full" style="height: 380px; border: none;"
-                                    title="แบบรายงานผลการจัดประชุมผู้ปกครองระดับห้องเรียน">
-                                </iframe>
+                                <div class="carousel-slide" onclick="openModal(0, 2)">
+                                    <img src="../assets/images/section2/2.1/award_1.jpg"
+                                        alt="พิธีมอบรางวัลนักเรียนและครูดีเด่นชั้นมัธยมศึกษาปีที่ 3">
+                                    <div class="slide-overlay">
+                                        <p class="slide-title">พิธีมอบรางวัลนักเรียนและครูดีเด่นชั้นมัธยมศึกษาปีที่ 3
+                                        </p>
+                                        <p class="slide-hint">คลิกเพื่อดูรายละเอียด</p>
+                                    </div>
+                                </div>
                             </div>
-                            <a href="../assets/pdf_files/2.2/แบบรายงานผลการจัดประชุมผู้ปกครองระดับห้(1).pdf"
-                                target="_blank"
-                                class="inline-flex items-center gap-2 mt-3 text-sm font-medium text-sidebar hover:underline">
-                                ↗ เปิดไฟล์ PDF เต็มหน้าจอ
-                            </a>
+                            <button class="carousel-btn prev"
+                                onclick="event.stopPropagation(); moveSlide('carousel1', -1)"><i
+                                    class="fa fa-chevron-left"></i></button>
+                            <button class="carousel-btn next"
+                                onclick="event.stopPropagation(); moveSlide('carousel1', 1)"><i
+                                    class="fa fa-chevron-right"></i></button>
                         </div>
-                    </div>
-                </section>
+                        <div class="carousel-dots" id="carousel1-dots"></div>
+                    </section>
 
-            </div>
+                    <!-- 2.2 ส่งเสริมความสัมพันธ์กับผู้ปกครองและชุมชน -->
+                    <section
+                        class="glass-card rounded-2xl p-6 shadow-md card-hover-lift md:p-8 card-hover-lift relative z-10">
+                        <h2 class="text-2xl font-bold text-sidebar mb-6">2.2 ส่งเสริมความสัมพันธ์กับผู้ปกครองและชุมชน
+                        </h2>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
+                            <!-- Left: Photo Carousel -->
+                            <div>
+                                <p class="text-sm font-semibold text-sidebar/70 uppercase tracking-wide mb-3"><i
+                                        class="fa fa-camera mr-1"></i> ภาพกิจกรรม
+                                </p>
+                                <!-- Slides สร้างอัตโนมัติจาก sec22Config ด้านล่าง -->
+                                <div class="carousel-container" id="carousel2">
+                                    <div class="carousel-track" id="carousel2-track">
+                                        <div class="carousel-slide" onclick="openModal(1, 0)">
+                                            <img src="../assets/images/section2/2.2/IMG_5060.JPG"
+                                                alt="งานประชุมผู้ปกครอง">
+                                            <div class="slide-overlay">
+                                                <p class="slide-title">งานประชุมผู้ปกครอง</p>
+                                                <p class="slide-hint">คลิกเพื่อดูรายละเอียด</p>
+                                            </div>
+                                        </div>
+                                        <div class="carousel-slide" onclick="openModal(1, 1)">
+                                            <img src="../assets/images/section2/2.2/IMG_5061.JPG"
+                                                alt="งานประชุมผู้ปกครอง">
+                                            <div class="slide-overlay">
+                                                <p class="slide-title">งานประชุมผู้ปกครอง</p>
+                                                <p class="slide-hint">คลิกเพื่อดูรายละเอียด</p>
+                                            </div>
+                                        </div>
+                                        <div class="carousel-slide" onclick="openModal(1, 2)">
+                                            <img src="../assets/images/section2/2.2/IMG_5059.JPG"
+                                                alt="งานประชุมผู้ปกครอง">
+                                            <div class="slide-overlay">
+                                                <p class="slide-title">งานประชุมผู้ปกครอง</p>
+                                                <p class="slide-hint">คลิกเพื่อดูรายละเอียด</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button class="carousel-btn prev"
+                                        onclick="event.stopPropagation(); moveSlide('carousel2', -1)"><i
+                                            class="fa fa-chevron-left"></i></button>
+                                    <button class="carousel-btn next"
+                                        onclick="event.stopPropagation(); moveSlide('carousel2', 1)"><i
+                                            class="fa fa-chevron-right"></i></button>
+                                </div>
+                                <div class="carousel-dots" id="carousel2-dots"></div>
+                            </div>
+
+                            <!-- Right: Document Link Card (like 1.3) -->
+                            <div>
+                                <p class="text-sm font-semibold text-sidebar/70 uppercase tracking-wide mb-3"><i
+                                        class="fa fa-file-text-o mr-1"></i>
+                                    เอกสารประกอบ</p>
+                                <div class="w-full rounded-xl border border-sidebar/10 overflow-hidden bg-gradient-to-br from-sidebar/5 to-sidebar/10 flex items-center justify-center"
+                                    style="height: 300px;">
+                                    <div class="text-center space-y-5 p-8">
+                                        <div class="mb-4">
+                                            <i class="fa fa-file-pdf-o text-sidebar/40" style="font-size:5rem;"></i>
+                                        </div>
+                                        <h3 class="text-xl font-bold text-sidebar mb-3">แบบรายงานผลการจัดประชุมผู้ปกครอง
+                                        </h3>
+                                        <p class="text-sidebar/70 mb-5 text-sm">คลิกลิงค์ด้านล่างเพื่อเข้าถึงเอกสาร</p>
+                                        <a href="../assets/pdf_files/2.2/แบบรายงานผลการจัดประชุมผู้ปกครองระดับห้(1).pdf"
+                                            target="_blank" rel="noopener noreferrer"
+                                            class="inline-block px-7 py-3 bg-sidebar text-white rounded-xl hover:bg-sidebar/90 transition-all duration-200 font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                                            เปิดเอกสาร <i class="fa fa-external-link ml-2"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </section>
+
+                </div>
         </main>
     </div>
 
     <!-- Modal / Lightbox -->
     <div class="modal-overlay" id="modal" onclick="closeModal(event)">
         <button class="modal-close" onclick="closeModal(event)">✕</button>
-        <button class="modal-nav-btn prev" onclick="event.stopPropagation(); navigateModal(-1)">❮</button>
-        <button class="modal-nav-btn next" onclick="event.stopPropagation(); navigateModal(1)">❯</button>
+        <button class="modal-nav-btn prev" onclick="event.stopPropagation(); navigateModal(-1)"><i
+                class="fa fa-chevron-left"></i></button>
+        <button class="modal-nav-btn next" onclick="event.stopPropagation(); navigateModal(1)"><i
+                class="fa fa-chevron-right"></i></button>
         <div class="modal-content" onclick="event.stopPropagation()">
             <!-- Image Carousel in Modal -->
             <div class="modal-image-carousel">
                 <div class="modal-image-track" id="modal-image-track"></div>
-                <button class="modal-img-nav prev" onclick="navigateModalImage(-1)">❮</button>
-                <button class="modal-img-nav next" onclick="navigateModalImage(1)">❯</button>
+                <button class="modal-img-nav prev" onclick="navigateModalImage(-1)"><i
+                        class="fa fa-chevron-left"></i></button>
+                <button class="modal-img-nav next" onclick="navigateModalImage(1)"><i
+                        class="fa fa-chevron-right"></i></button>
             </div>
             <div class="modal-img-dots" id="modal-img-dots"></div>
             <div class="modal-body">
@@ -1015,7 +1085,7 @@
 
         // --- Animations on Scroll ---
         document.addEventListener('DOMContentLoaded', () => {
-            const animateElements = document.querySelectorAll('.bg-white.rounded-2xl, section h2, section p');
+            const animateElements = document.querySelectorAll('.glass-card.rounded-2xl, section h2, section p');
 
             animateElements.forEach((el, index) => {
                 el.style.opacity = '0';

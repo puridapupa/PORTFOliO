@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta property="og:image" content="../assets/images/meta.png">
     <link rel="icon" type="image/png" href="../assets/images/meta.png">
-    <title>Portfolio - Home</title>
+    <title>Portfolio - HOME</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="../assets/css/custom_background.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -16,34 +16,99 @@
             --color-main-bg: #F5F5F7;
             --color-btn-primary: #EDDFE0;
             --color-btn-secondary: #B7B7B7;
+            --color-accent: #D98359;
+            --color-accent-light: #E3A88D;
+        }
+
+        .animate-blob {
+            animation: blob 12s infinite alternate ease-in-out;
+        }
+        .animation-delay-2000 {
+            animation-delay: 2s;
+        }
+        .animation-delay-4000 {
+            animation-delay: 4s;
+        }
+        @keyframes blob {
+            0% { transform: translate(0px, 0px) scale(1); }
+            33% { transform: translate(30px, -50px) scale(1.1); }
+            66% { transform: translate(-20px, 20px) scale(0.9); }
+            100% { transform: translate(0px, 0px) scale(1); }
+        }
+
+        /* Glassmorphism Classes */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 8px 32px rgba(112, 92, 83, 0.08);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .glass-card:hover {
+            box-shadow: 0 15px 40px rgba(112, 92, 83, 0.15);
+            border-color: rgba(255, 255, 255, 1);
+            transform: translateY(-6px);
+        }
+
+        /* Other utility animations */
+        .animate-float-slow {
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .img-zoom-target {
+            transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .img-zoom-wrapper:hover .img-zoom-target {
+            transform: scale(1.05);
         }
     </style>
 </head>
 
-<body class="bg-main-bg min-h-screen">
+<body class="bg-main-bg min-h-screen relative overflow-x-hidden">
+
+    <!-- Modern Animated Background Elements -->
+    <div class="fixed inset-0 z-0 overflow-hidden pointer-events-none w-full h-full">
+        <div
+            class="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-[#E3A88D] rounded-full mix-blend-multiply filter blur-[100px] opacity-30 animate-blob">
+        </div>
+        <div
+            class="absolute top-[20%] right-[-10%] w-[40%] h-[40%] bg-sidebar rounded-full mix-blend-multiply filter blur-[120px] opacity-20 animate-blob animation-delay-2000">
+        </div>
+        <div
+            class="absolute bottom-[-20%] left-[20%] w-[60%] h-[60%] bg-[#D98359] rounded-full mix-blend-multiply filter blur-[150px] opacity-20 animate-blob animation-delay-4000">
+        </div>
+    </div>
+
     <!-- Mobile Navbar -->
-    <nav class="fixed top-0 left-0 right-0 z-50 md:hidden"
-        style="background: linear-gradient(135deg, #705C53 0%, #4A3F38 100%)">
+    <nav class="fixed top-0 left-0 right-0 z-50 md:hidden bg-sidebar/90 backdrop-blur-md shadow-lg border-b border-white/10"
+        style="background: linear-gradient(135deg, rgba(112,92,83,0.95) 0%, rgba(74,63,56,0.95) 100%)">
         <div class="flex items-center justify-between px-4 py-3">
-            <a href="homepage.html" class="text-white font-bold text-lg">Portfolio</a>
+            <a href="homepage.html" class="text-white font-bold text-lg tracking-wide">Purida.</a>
             <button id="hamburgerBtn" onclick="toggleMobileMenu()"
-                class="text-white p-2 text-xl w-10 h-10 flex items-center justify-center">
+                class="text-white p-2 text-xl w-10 h-10 flex items-center justify-center hover:bg-white/10 rounded-lg transition-colors">
                 <i id="hamburgerIcon" class="fa fa-bars"></i>
                 <i id="closeIcon" class="fa fa-times" style="display:none"></i>
             </button>
         </div>
         <!-- Mobile Menu Dropdown -->
-        <div id="mobileMenu" class="hidden bg-sidebar/95 backdrop-blur-sm">
-            <div class="px-4 py-3 space-y-1">
-                <a href="homepage.html" class="block py-3 px-4 rounded-lg bg-white/10 text-white font-medium">Home</a>
+        <div id="mobileMenu" class="hidden bg-sidebar/95 backdrop-blur-xl border-b border-white/10 shadow-2xl">
+            <div class="px-4 py-4 space-y-2">
+                <a href="homepage.html"
+                    class="block py-3 px-4 rounded-xl bg-white/15 text-white font-medium border border-white/10">HOME</a>
                 <a href="first_section.html"
-                    class="block py-3 px-4 rounded-lg text-white/80 hover:bg-white/10">ด้านการจัดการเรียนรู้</a>
+                    class="block py-3 px-4 rounded-xl text-white/80 hover:bg-white/10 hover:text-white transition-all">ด้านการจัดการเรียนรู้</a>
                 <a href="sec_section.html"
-                    class="block py-3 px-4 rounded-lg text-white/80 hover:bg-white/10">ด้านระบบดูแลช่วยเหลือนักเรียน</a>
+                    class="block py-3 px-4 rounded-xl text-white/80 hover:bg-white/10 hover:text-white transition-all">ด้านระบบดูแลช่วยเหลือนักเรียน</a>
                 <a href="third_section.html"
-                    class="block py-3 px-4 rounded-lg text-white/80 hover:bg-white/10">ด้านจรรยาบรรณวิชาชีพครู</a>
+                    class="block py-3 px-4 rounded-xl text-white/80 hover:bg-white/10 hover:text-white transition-all">ด้านจรรยาบรรณวิชาชีพครู</a>
                 <a href="contactpage.html"
-                    class="block py-3 px-4 rounded-lg text-white/80 hover:bg-white/10">ติดต่อฉัน</a>
+                    class="block py-3 px-4 rounded-xl text-white/80 hover:bg-white/10 hover:text-white transition-all">ติดต่อฉัน</a>
             </div>
         </div>
     </nav>
@@ -51,44 +116,56 @@
     <div class="flex min-h-screen pt-14 md:pt-0">
         <!-- Sidebar (Desktop Only) -->
         <aside
-            class="fixed left-0 top-0 h-full w-64 text-white p-6 flex-col transition-transform duration-300 z-40 hidden md:flex"
+            class="fixed left-0 top-0 h-full w-72 text-white p-8 flex-col z-40 hidden md:flex border-r border-white/10 shadow-2xl"
             style="background: linear-gradient(180deg, #705C53 0%, #5D4B44 40%, #4A3F38 70%, #3D322C 100%)">
+
             <!-- Logo / Brand -->
-            <div class="mb-12">
-                <h1 class="text-2xl font-bold tracking-tight">Portfolio</h1>
-                <p class="text-sm text-white/70 mt-1">Purida Kumrak</p>
+            <div class="mb-14 relative group">
+                <div
+                    class="absolute -left-4 w-1.5 h-full bg-btn-primary rounded-r-lg transform origin-left scale-y-0 group-hover:scale-y-100 transition-transform duration-300">
+                </div>
+                <h1 class="text-3xl font-extrabold tracking-tight">Purida<span class="text-btn-primary">.</span></h1>
+                <p class="text-sm text-white/60 mt-1 uppercase tracking-widest font-medium">Portfolio</p>
             </div>
 
             <!-- Navigation -->
-            <nav class="flex-1">
-                <ul class="space-y-2">
+            <nav class="flex-1 w-full">
+                <ul class="space-y-3">
                     <li>
                         <a href="homepage.html"
-                            class="block py-3 px-4 rounded-lg bg-white/10 text-white font-medium transition-all duration-200">
-                            Home
+                            class="flex items-center gap-3 py-3.5 px-4 rounded-xl bg-white/15 text-white font-medium shadow-inner border border-white/10 backdrop-blur-sm transition-all duration-300">
+                            <i class="fa fa-home border border-white/20 p-2 rounded-lg bg-white/5"></i>
+                            HOME
                         </a>
                     </li>
                     <li>
                         <a href="first_section.html"
-                            class="block py-3 px-4 rounded-lg hover:bg-white/10 text-white/80 hover:text-white transition-all duration-200">
+                            class="flex items-center gap-3 py-3 px-4 rounded-xl hover:bg-white/5 text-white/70 hover:text-white transition-all duration-300 group">
+                            <i
+                                class="fa fa-book border border-white/10 p-2 rounded-lg group-hover:border-white/20 transition-colors"></i>
                             ด้านการจัดการเรียนรู้
                         </a>
                     </li>
                     <li>
                         <a href="sec_section.html"
-                            class="block py-3 px-4 rounded-lg hover:bg-white/10 text-white/80 hover:text-white transition-all duration-200">
-                            ด้านระบบดูแลช่วยเหลือนักเรียน
+                            class="flex items-center gap-3 py-3 px-4 rounded-xl hover:bg-white/5 text-white/70 hover:text-white transition-all duration-300 group">
+                            <i
+                                class="fa fa-users border border-white/10 p-2 rounded-lg group-hover:border-white/20 transition-colors"></i>
+                            ด้านระบบดูแลนักเรียน
                         </a>
                     </li>
                     <li>
                         <a href="third_section.html"
-                            class="block py-3 px-4 rounded-lg hover:bg-white/10 text-white/80 hover:text-white transition-all duration-200">
-                            ด้านจรรยาบรรณวิชาชีพครู
+                            class="flex items-center gap-3 py-3 px-4 rounded-xl hover:bg-white/5 text-white/70 hover:text-white transition-all duration-300 group">
+                            <i
+                                class="fa fa-balance-scale border border-white/10 p-2 rounded-lg group-hover:border-white/20 transition-colors"></i>
+                            ด้านจรรยาบรรณ
                         </a>
                     </li>
-                    <li>
+                    <li class="pt-6">
                         <a href="contactpage.html"
-                            class="block py-3 px-4 rounded-lg hover:bg-white/10 text-white/80 hover:text-white transition-all duration-200">
+                            class="flex items-center gap-3 py-3 px-4 rounded-xl hover:bg-white/10 text-white/80 hover:text-white transition-all duration-300 border border-transparent hover:border-white/20 bg-white/5 group">
+                            <i class="fa fa-envelope-o p-2 transition-colors"></i>
                             ติดต่อฉัน
                         </a>
                     </li>
@@ -96,218 +173,300 @@
             </nav>
 
             <!-- Footer -->
-            <div class="pt-6 border-t border-white/20">
-                <p class="text-xs text-white/50">© 2026 Portfolio</p>
+            <div class="pt-8 border-t border-white/10">
+                <p class="text-xs text-white/40 text-center font-medium">© 2026 Purida Kumrak</p>
             </div>
         </aside>
 
         <!-- Main Content -->
-        <main class="flex-1 md:ml-64 p-6 md:p-12">
-            <!-- Hero Section -->
-            <section class="py-12 md:py-16 flex items-center">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full">
-                    <!-- Text Content -->
-                    <div class="space-y-6 order-2 lg:order-1">
-                        <p class="text-sidebar/70 text-2xl font-medium">Hello, My Name is</p>
+        <main class="flex-1 md:ml-72 p-6 md:p-12 lg:p-16 relative z-10 w-full overflow-hidden">
+            <div class="max-w-7xl mx-auto w-full">
 
-                        <h2
-                            class="text-4xl md:text-5xl font-extrabold text-gradient-earth leading-tight tracking-tight">
-                            Purida Kumrak
-                        </h2>
+                <!-- Hero Section -->
+                <section class="py-12 md:py-16 flex items-center min-h-[85vh]">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center w-full max-w-7xl mx-auto">
 
-                        <p class="text-sidebar/70 text-lg font-medium">(นางสาวปูริดา คุ้มรักษ์, รหัสนิสิต 65411979)</p>
-
-                        <p class="text-xl md:text-xl text-sidebar/80 max-w-xl leading-relaxed">
-                            นักศึกษาฝึกประสบการณ์วิชาชีพครูชั้นปีที่ 4 คณะศึกษาศาสตร์
-                            <br>สาขาเทคโนโลยีและการสื่อสารศึกษา มหาวิทยาลัยนเรศวร
-                        </p>
-
-                        <!-- CTA Buttons -->
-                        <div class="flex flex-wrap gap-4 pt-6">
-                            <a href="contactpage.html"
-                                class="px-8 py-4 bg-sidebar text-white rounded-xl font-medium btn-premium shadow-lg shadow-sidebar/30 hover:shadow-sidebar/50">
-                                ติดต่อฉัน
-                            </a>
-                            <a href="first_section.html"
-                                class="px-8 py-4 bg-btn-primary text-sidebar rounded-xl font-medium btn-premium shadow-lg shadow-black/5 hover:shadow-black/10">
-                                ดูผลงาน
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Profile Image -->
-                    <div class="flex justify-center order-1 lg:order-2">
-                        <div class="relative">
-                            <!-- Gradient Blob Background -->
+                        <!-- Text Content -->
+                        <div class="space-y-6 order-2 lg:order-1 relative">
                             <div
-                                class="absolute -inset-6 bg-gradient-to-br from-sidebar/30 via-btn-primary to-sidebar/20 rounded-[3rem] blur-2xl opacity-60 animate-pulse">
+                                class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/60 backdrop-blur-md border border-white/50 shadow-sm text-sidebar text-sm font-semibold tracking-wide mb-2">
+                                <span class="w-2 h-2 rounded-full bg-[var(--color-accent)] animate-pulse"></span>
+                                นักศึกษาฝึกประสบการณ์วิชาชีพครู ป.ตรี ปีที่ 4
                             </div>
 
-                            <!-- Main Image Container -->
-                            <div
-                                class="relative w-72 h-72 md:w-[28rem] md:h-[28rem] rounded-[2rem] shadow-[0_20px_50px_rgba(112,92,83,0.3)] bg-gradient-to-br from-white/80 to-white/40 p-1 animate-float-slow img-zoom-wrapper">
-                                <img src="../assets/images/Gemini_Generated_Image_3wbttt3wbttt3wbt.png"
-                                    alt="Purida Kumrak" class="img-zoom-target rounded-[1.75rem]">
+                            <h2
+                                class="text-5xl md:text-6xl lg:text-[5rem] font-extrabold text-sidebar leading-[1.1] tracking-tight drop-shadow-sm">
+                                Purida
+                                <span class="text-[var(--color-accent)] block mt-2">Kumrak</span>
+                            </h2>
+
+                            <p
+                                class="text-lg md:text-xl text-sidebar/80 max-w-lg leading-relaxed font-medium pl-4 border-l-4 border-[var(--color-accent)]">
+                                คณะศึกษาศาสตร์ สาขาเทคโนโลยีและการสื่อสารศึกษา
+                                <br>มหาวิทยาลัยนเรศวร (รหัสนิสิต 65411979)
+                            </p>
+
+                            <!-- CTA Buttons -->
+                            <div class="flex flex-wrap gap-4 pt-8">
+                                <a href="first_section.html"
+                                    class="px-8 py-3.5 bg-sidebar text-white rounded-2xl font-semibold shadow-xl shadow-sidebar/20 hover:shadow-sidebar/40 hover:-translate-y-1 transition-all duration-300 flex items-center gap-2">
+                                    ดูผลงาน <i class="fa fa-arrow-right text-sm"></i>
+                                </a>
+                                <a href="contactpage.html"
+                                    class="px-8 py-3.5 bg-btn-primary/80 backdrop-blur-md text-sidebar rounded-2xl font-semibold shadow-lg shadow-black/5 hover:-translate-y-1 border border-white transition-all duration-300">
+                                    ติดต่อฉัน
+                                </a>
                             </div>
 
-                            <!-- Floating Accent -->
-                            <div class="absolute -bottom-3 -right-3 w-16 h-16 bg-sidebar rounded-2xl rotate-12"></div>
-                            <div class="absolute -top-3 -left-3 w-12 h-12 bg-btn-primary rounded-xl -rotate-12"></div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Teaching Experience Timeline -->
-            <section class="pt-4 pb-16">
-                <div class="mb-8">
-                    <h2 class="text-xl font-bold text-sidebar mb-2">ประวัติการฝึกประสบการณ์วิชาชีพครู</h2>
-                    <p class="text-sidebar/60">ประสบการณ์ฝึกสอนตลอด 4 ปีการศึกษา</p>
-                </div>
-
-                <div class="space-y-0">
-
-                    <!-- ปีที่ 1 -->
-                    <div class="flex gap-4 md:gap-6">
-                        <!-- Left: circle + connector line -->
-                        <div class="hidden md:flex flex-col items-center flex-shrink-0" style="width:48px">
-                            <div
-                                class="w-12 h-12 rounded-full bg-sidebar text-white flex items-center justify-center font-bold text-xs shadow-lg">
-                                ปี 1</div>
-                            <div class="w-0.5 flex-1 my-1"
-                                style="background:linear-gradient(to bottom,#705C53,#EDDFE0)"></div>
-                        </div>
-                        <div class="flex-1 bg-white rounded-2xl p-5 mb-4 shadow-sm card-hover-lift">
-                            <div class="flex items-start gap-3">
-                                <div class="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0 md:hidden font-bold text-sm text-white"
-                                    style="background:#705C53">1</div>
-                                <div class="flex-1">
-                                    <span
-                                        class="text-xs font-semibold px-2 py-0.5 rounded-full text-sidebar inline-block mb-1"
-                                        style="background:#EDDFE0">ชั้นปีที่ 1</span>
-                                    <h3 class="text-base font-bold text-sidebar">โรงเรียนบ่อวิทยบางระกำ</h3>
-                                    <p class="text-sidebar/70 text-sm mt-0.5">จังหวัดพิษณุโลก —
-                                        ฝึกสังเกตการณ์สอนและเรียนรู้บริบทของห้องเรียนจริง</p>
+                            <!-- Mini Stats behind buttons -->
+                            <div class="grid grid-cols-3 gap-6 pt-10 opacity-80 max-w-md">
+                                <div>
+                                    <h4 class="text-3xl font-extrabold text-sidebar">4</h4>
+                                    <p class="text-xs text-sidebar/60 font-bold uppercase tracking-widest mt-1">
+                                        ปีการศึกษา
+                                    </p>
+                                </div>
+                                <div>
+                                    <h4 class="text-3xl font-extrabold text-[var(--color-accent)]">3</h4>
+                                    <p class="text-xs text-sidebar/60 font-bold uppercase tracking-widest mt-1">โรงเรียน
+                                    </p>
+                                </div>
+                                <div>
+                                    <h4 class="text-3xl font-extrabold text-sidebar">7</h4>
+                                    <p class="text-xs text-sidebar/60 font-bold uppercase tracking-widest mt-1">ชุดผลงาน
+                                    </p>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- ปีที่ 2 -->
-                    <div class="flex gap-4 md:gap-6">
-                        <div class="hidden md:flex flex-col items-center flex-shrink-0" style="width:48px">
-                            <div
-                                class="w-12 h-12 rounded-full bg-sidebar text-white flex items-center justify-center font-bold text-xs shadow-lg">
-                                ปี 2</div>
-                            <div class="w-0.5 flex-1 my-1"
-                                style="background:linear-gradient(to bottom,#705C53,#EDDFE0)"></div>
-                        </div>
-                        <div class="flex-1 bg-white rounded-2xl p-5 mb-4 shadow-sm card-hover-lift">
-                            <div class="flex items-start gap-3">
-                                <div class="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0 md:hidden font-bold text-sm text-white"
-                                    style="background:#705C53">2</div>
-                                <div class="flex-1">
-                                    <span
-                                        class="text-xs font-semibold px-2 py-0.5 rounded-full text-sidebar inline-block mb-1"
-                                        style="background:#EDDFE0">ชั้นปีที่ 2</span>
-                                    <h3 class="text-base font-bold text-sidebar">โรงเรียนจ่านกร้อง</h3>
-                                    <p class="text-sidebar/70 text-sm mt-0.5">จังหวัดพิษณุโลก —
-                                        ฝึกการจัดการเรียนการสอนและพัฒนาทักษะการเป็นครู</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                        <!-- Profile Image -->
+                        <div class="flex justify-center lg:justify-end order-1 lg:order-2">
+                            <div class="relative max-w-md w-full animate-float-slow">
 
-                    <!-- ปีที่ 3–4 -->
-                    <div class="flex gap-4 md:gap-6">
-                        <div class="hidden md:flex flex-col items-center flex-shrink-0" style="width:48px">
-                            <div class="w-12 h-12 rounded-full text-white flex items-center justify-center font-bold text-xs shadow-lg"
-                                style="background:linear-gradient(135deg,#705C53,#4A3F38)">3–4</div>
-                        </div>
-                        <div
-                            class="flex-1 bg-white rounded-2xl p-5 mb-4 shadow-sm card-hover-lift border-l-4 border-sidebar">
-                            <div class="flex items-start gap-3">
-                                <div class="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0 md:hidden font-bold text-xs text-white"
-                                    style="background:#705C53">3-4</div>
-                                <div class="flex-1">
-                                    <div class="flex flex-wrap gap-2 mb-1">
-                                        <span
-                                            class="text-xs font-semibold px-2 py-0.5 rounded-full text-white inline-block"
-                                            style="background:#705C53">ชั้นปีที่ 3–4</span>
-                                        <span class="text-xs font-medium text-sidebar/70 px-2 py-0.5 rounded-full"
-                                            style="background:#EDDFE0">ปัจจุบัน</span>
+                                <!-- Main Image Container -->
+                                <div
+                                    class="relative w-full aspect-square md:aspect-[4/4.5] rounded-[2rem] shadow-[0_30px_60px_rgba(112,92,83,0.2)] bg-white/40 p-3 img-zoom-wrapper backdrop-blur-lg border border-white">
+                                    <img src="../assets/images/Gemini_Generated_Image_3wbttt3wbttt3wbt.png"
+                                        alt="Purida Kumrak"
+                                        class="w-full h-full object-cover img-zoom-target rounded-[1.5rem]">
+
+                                    <div
+                                        class="absolute inset-4 rounded-[1.5rem] ring-1 ring-inset ring-black/5 pointer-events-none">
                                     </div>
-                                    <h3 class="text-base font-bold text-sidebar">โรงเรียนเฉลิมขวัญสตรี</h3>
-                                    <p class="text-sidebar/70 text-sm mt-0.5">จังหวัดพิษณุโลก —
-                                        ฝึกประสบการณ์วิชาชีพครูแบบเต็มรูปแบบ สอนวิชาเทคโนโลยีเพื่อการแก้ปัญหา 1</p>
+                                </div>
+
+                                <!-- Floating Badges -->
+                                <div
+                                    class="absolute -bottom-6 -right-4 lg:-right-8 w-max max-w-[16rem] bg-sidebar text-white shadow-2xl rounded-2xl p-4 border border-white/20 transform rotate-3 z-20">
+                                    <p class="text-[10px] text-btn-primary font-bold uppercase tracking-widest mb-1">
+                                        Teaching Subject</p>
+                                    <p class="font-bold text-sm">เทคโนโลยีเพื่อการแก้ปัญหา 1</p>
+                                </div>
+
+                                <div
+                                    class="absolute -top-6 -left-4 lg:-left-6 w-16 h-16 bg-white/90 backdrop-blur-md shadow-xl rounded-2xl flex items-center justify-center border border-white transform -rotate-6 z-20">
+                                    <span class="text-sidebar font-extrabold text-xl">NU</span>
                                 </div>
                             </div>
                         </div>
                     </div>
+                </section>
 
-                </div>
-            </section>
+                <!-- Teaching Experience Timeline -->
+                <section class="pt-12 pb-20 max-w-7xl mx-auto">
+                    <div
+                        class="mb-10 text-center md:text-left flex flex-col md:flex-row md:items-end justify-between border-b border-sidebar/10 pb-4">
+                        <div>
+                            <h2 class="text-3xl font-extrabold text-sidebar mb-2 tracking-tight">
+                                ประวัติการฝึกประสบการณ์วิชาชีพครู</h2>
+                            <p class="text-sidebar/70 font-medium">เส้นทางประสบการณ์ฝึกสอนตลอด 4 ปีการศึกษา</p>
+                        </div>
+                    </div>
 
-            <!-- Teaching Schedule -->
-            <section class="pb-16">
-                <div class="mb-8">
-                    <h2 class="text-xl font-bold text-sidebar mb-2">ตารางสอน</h2>
-                    <p class="text-sidebar/60">ตารางการปฏิบัติงานสอนและกิจกรรม</p>
-                </div>
-                <div class="bg-white p-4 md:p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
-                    <img src="../assets/images/table/t1.jpg" alt="ตารางสอน"
-                        class="w-full h-auto rounded-xl border border-gray-100 img-zoom-target">
-                </div>
-            </section>
+                    <div class="space-y-6 relative">
+                        <!-- Global Line -->
+                        <div
+                            class="hidden md:block absolute left-[23px] top-4 bottom-8 w-1 bg-gradient-to-b from-sidebar via-[var(--color-accent)] to-[#EDDFE0] rounded-full opacity-30 z-0">
+                        </div>
 
-            <!-- Certificates -->
-            <section class="pb-16">
-                <div class="mb-8">
-                    <h2 class="text-xl font-bold text-sidebar mb-2">เกียรติบัตร</h2>
-                    <p class="text-sidebar/60">ความภาคภูมิใจและผลงานที่ผ่านมา</p>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div class="bg-white p-2 rounded-2xl shadow-sm flex flex-col h-full card-hover-lift">
-                        <div class="img-zoom-wrapper rounded-xl"><img src="../assets/images/certificate/c1.jpg"
-                                alt="เกียรติบัตร 1"
-                                class="w-full h-auto rounded-xl border border-gray-100 img-zoom-target"></div>
-                        <div class="p-3 mt-2 flex-grow flex flex-col justify-between">
-                            <div>
-                                <h3 class="font-bold text-sidebar text-[15px] leading-tight mb-1">
-                                    การอบรมปฏิบัติงานครู "On the Job Training"</h3>
-                                <p class="text-xs text-sidebar/70 line-clamp-3">
-                                    เพื่อประสิทธิภาพในการปฏิบัติงานวิชาการในโรงเรียนเฉลิมขวัญสตรี ปีการศึกษา 2568</p>
+                        <!-- Year 1 -->
+                        <div class="flex gap-4 md:gap-8 relative z-10 group">
+                            <div class="hidden md:flex flex-col items-center flex-shrink-0 pt-2">
+                                <div
+                                    class="w-12 h-12 rounded-2xl bg-white shadow-lg border border-sidebar/20 text-sidebar flex items-center justify-center font-extrabold text-lg group-hover:bg-sidebar group-hover:text-white transition-colors duration-300">
+                                    1
+                                </div>
+                            </div>
+                            <div class="flex-1 glass-card rounded-3xl p-6 md:p-8 relative overflow-hidden">
+                                <div class="absolute top-0 right-0 w-32 h-32 bg-sidebar/5 rounded-full blur-[40px]">
+                                </div>
+                                <div class="flex items-start gap-4">
+                                    <div
+                                        class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 md:hidden font-bold text-white bg-sidebar shadow-md">
+                                        1</div>
+                                    <div class="flex-1">
+                                        <span
+                                            class="text-xs font-bold px-3 py-1 rounded-full text-sidebar bg-white border border-sidebar/20 shadow-sm inline-block mb-3">ชั้นปีที่
+                                            1</span>
+                                        <h3 class="text-xl font-bold text-sidebar mb-1">โรงเรียนบ่อวิทยบางระกำ</h3>
+                                        <p class="text-sidebar/70 font-medium">จังหวัดพิษณุโลก —
+                                            ฝึกสังเกตการณ์สอนและเรียนรู้บริบทของห้องเรียนจริง</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Year 2 -->
+                        <div class="flex gap-4 md:gap-8 relative z-10 group">
+                            <div class="hidden md:flex flex-col items-center flex-shrink-0 pt-2">
+                                <div
+                                    class="w-12 h-12 rounded-2xl bg-white shadow-lg border border-sidebar/20 text-sidebar flex items-center justify-center font-extrabold text-lg group-hover:bg-sidebar group-hover:text-white transition-colors duration-300">
+                                    2
+                                </div>
+                            </div>
+                            <div class="flex-1 glass-card rounded-3xl p-6 md:p-8 relative overflow-hidden">
+                                <div class="absolute top-0 right-0 w-32 h-32 bg-sidebar/5 rounded-full blur-[40px]">
+                                </div>
+                                <div class="flex items-start gap-4">
+                                    <div
+                                        class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 md:hidden font-bold text-white bg-sidebar shadow-md">
+                                        2</div>
+                                    <div class="flex-1">
+                                        <span
+                                            class="text-xs font-bold px-3 py-1 rounded-full text-sidebar bg-white border border-sidebar/20 shadow-sm inline-block mb-3">ชั้นปีที่
+                                            2</span>
+                                        <h3 class="text-xl font-bold text-sidebar mb-1">โรงเรียนจ่านกร้อง</h3>
+                                        <p class="text-sidebar/70 font-medium">จังหวัดพิษณุโลก —
+                                            ฝึกการจัดการเรียนการสอนและพัฒนาทักษะการเป็นครู</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Year 3-4 -->
+                        <div class="flex gap-4 md:gap-8 relative z-10 group">
+                            <div class="hidden md:flex flex-col items-center flex-shrink-0 pt-2">
+                                <div
+                                    class="w-12 h-12 rounded-2xl bg-sidebar shadow-xl text-white flex items-center justify-center font-extrabold text-sm border-2 border-white ring-4 ring-sidebar/20 transform group-hover:scale-110 transition-transform duration-300 text-center leading-tight">
+                                    3&nbsp;-&nbsp;4
+                                </div>
+                            </div>
+                            <div
+                                class="flex-1 glass-card rounded-3xl p-6 md:p-8 relative overflow-hidden border-2 border-[var(--color-accent)]/50">
+                                <!-- Glow effect for current -->
+                                <div
+                                    class="absolute -top-10 -right-10 w-48 h-48 bg-[var(--color-accent)]/10 rounded-full blur-[50px] pointer-events-none">
+                                </div>
+
+                                <div class="flex items-start gap-4">
+                                    <div
+                                        class="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 md:hidden font-bold text-white bg-[var(--color-accent)] shadow-lg shadow-[var(--color-accent)]/30 text-xs">
+                                        3-4</div>
+                                    <div class="flex-1">
+                                        <div class="flex flex-wrap gap-2 mb-3">
+                                            <span
+                                                class="text-xs font-bold px-3 py-1 rounded-full text-white bg-sidebar shadow-sm border border-transparent">ชั้นปีที่
+                                                3–4</span>
+                                            <span
+                                                class="text-xs font-bold px-3 py-1 rounded-full text-[var(--color-accent)] bg-[var(--color-accent)]/10 border border-[var(--color-accent)]/30 shadow-sm flex items-center gap-1">
+                                                <span
+                                                    class="w-1.5 h-1.5 rounded-full bg-[var(--color-accent)] animate-ping"></span>
+                                                ปัจจุบัน
+                                            </span>
+                                        </div>
+                                        <h3 class="text-xl font-bold text-sidebar mb-2">โรงเรียนเฉลิมขวัญสตรี</h3>
+                                        <p class="text-sidebar/80 font-medium leading-relaxed">จังหวัดพิษณุโลก —
+                                            ฝึกประสบการณ์วิชาชีพครูแบบเต็มรูปแบบ<br> สอนวิชาเทคโนโลยีเพื่อการแก้ปัญหา 1
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
+                <!-- Teaching Schedule -->
+                <section class="pb-20 max-w-7xl mx-auto">
+                    <div class="mb-8">
+                        <h2 class="text-3xl font-extrabold text-sidebar mb-2 tracking-tight">ตารางสอน</h2>
+                        <p class="text-sidebar/70 font-medium">ตารางการปฏิบัติงานสอนและกิจกรรมในปัจจุบัน</p>
+                    </div>
+                    <div class="glass-card p-3 md:p-4 rounded-[2rem]">
+                        <div class="rounded-3xl overflow-hidden border border-white/40 shadow-inner bg-white/50">
+                            <img src="../assets/images/table/t1.jpg" alt="ตารางสอน"
+                                class="w-full h-auto img-zoom-target hover:scale-[1.02] transition-transform duration-500">
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Certificates -->
+                <section class="pb-20 max-w-7xl mx-auto">
+                    <div class="mb-8 flex items-center justify-between">
+                        <div>
+                            <h2 class="text-3xl font-extrabold text-sidebar mb-2 tracking-tight">เกียรติบัตร</h2>
+                            <p class="text-sidebar/70 font-medium">ความภาคภูมิใจและผลงานพัฒนาตนเองที่ผ่านมา</p>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <!-- Certificate 1 -->
+                        <div class="glass-card p-3 rounded-3xl flex flex-col h-full group">
+                            <div
+                                class="img-zoom-wrapper rounded-2xl border border-white/50 shadow-inner overflow-hidden mb-4 bg-white/40 aspect-[4/3] flex items-center justify-center">
+                                <img src="../assets/images/certificate/c1.jpg" alt="เกียรติบัตร 1"
+                                    class="w-full h-full object-cover img-zoom-target">
+                            </div>
+                            <div class="px-3 pb-4 flex-grow flex flex-col justify-between">
+                                <div>
+                                    <h3
+                                        class="font-bold text-sidebar text-lg leading-tight mb-2 group-hover:text-[var(--color-accent)] transition-colors">
+                                        การอบรมปฏิบัติงานครู "On the Job Training"</h3>
+                                    <p class="text-sm text-sidebar/70 leading-relaxed">
+                                        เพื่อประสิทธิภาพในการปฏิบัติงานวิชาการในโรงเรียนเฉลิมขวัญสตรี ปีการศึกษา 2568
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Certificate 2 -->
+                        <div class="glass-card p-3 rounded-3xl flex flex-col h-full group">
+                            <div
+                                class="img-zoom-wrapper rounded-2xl border border-white/50 shadow-inner overflow-hidden mb-4 bg-white/40 aspect-[4/3] flex items-center justify-center">
+                                <img src="../assets/images/certificate/c2.jpg" alt="เกียรติบัตร 2"
+                                    class="w-full h-full object-cover img-zoom-target">
+                            </div>
+                            <div class="px-3 pb-4 flex-grow flex flex-col justify-between">
+                                <div>
+                                    <h3
+                                        class="font-bold text-sidebar text-lg leading-tight mb-2 group-hover:text-[var(--color-accent)] transition-colors">
+                                        ครูที่ปรึกษาผู้สนับสนุนนักเรียนเรียนดีเด่น ระดับเพชร</h3>
+                                    <p class="text-sm text-sidebar/70 leading-relaxed">
+                                        ประจำปีการศึกษา 2568 โรงเรียนเฉลิมขวัญสตรี</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Certificate 3 -->
+                        <div class="glass-card p-3 rounded-3xl flex flex-col h-full group">
+                            <div
+                                class="img-zoom-wrapper rounded-2xl border border-white/50 shadow-inner overflow-hidden mb-4 bg-white/40 aspect-[4/3] flex items-center justify-center">
+                                <img src="../assets/images/certificate/c3.jpg" alt="เกียรติบัตร 3"
+                                    class="w-full h-full object-cover img-zoom-target">
+                            </div>
+                            <div class="px-3 pb-4 flex-grow flex flex-col justify-between">
+                                <div>
+                                    <h3
+                                        class="font-bold text-sidebar text-lg leading-tight mb-2 group-hover:text-[var(--color-accent)] transition-colors">
+                                        กรรมการตัดสินการประกวดการศึกษาค้นคว้าอิสระ</h3>
+                                    <p class="text-sm text-sidebar/70 leading-relaxed">
+                                        การนำเสนอผลงานการศึกษาค้นคว้าอิสระและเผยแพร่องค์ความรู้สู่สาธารณชน (IS)</p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="bg-white p-2 rounded-2xl shadow-sm flex flex-col h-full card-hover-lift">
-                        <div class="img-zoom-wrapper rounded-xl"><img src="../assets/images/certificate/c2.jpg"
-                                alt="เกียรติบัตร 2"
-                                class="w-full h-auto rounded-xl border border-gray-100 img-zoom-target"></div>
-                        <div class="p-3 mt-2 flex-grow flex flex-col justify-between">
-                            <div>
-                                <h3 class="font-bold text-sidebar text-[15px] leading-tight mb-1">
-                                    ครูที่ปรึกษาผู้สนับสนุนนักเรียนเรียนดีเด่น ระดับเพชร</h3>
-                                <p class="text-xs text-sidebar/70 line-clamp-3">
-                                    ประจำปีการศึกษา 2568 โรงเรียนเฉลิมขวัญสตรี</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="bg-white p-2 rounded-2xl shadow-sm flex flex-col h-full card-hover-lift">
-                        <div class="img-zoom-wrapper rounded-xl"><img src="../assets/images/certificate/c3.jpg"
-                                alt="เกียรติบัตร 3"
-                                class="w-full h-auto rounded-xl border border-gray-100 img-zoom-target"></div>
-                        <div class="p-3 mt-2 flex-grow flex flex-col justify-between">
-                            <div>
-                                <h3 class="font-bold text-sidebar text-[15px] leading-tight mb-1">
-                                    กรรมการตัดสินการประกวดการศึกษาค้นคว้าอิสระ</h3>
-                                <p class="text-xs text-sidebar/70 line-clamp-3">
-                                    การนำเสนอผลงานการศึกษาค้นคว้าอิสระและเผยแพร่องค์ความรู้สู่สาธารณชน (IS)</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+                </section>
+            </div>
         </main>
     </div>
 
@@ -318,38 +477,35 @@
             const closeIcon = document.getElementById('closeIcon');
 
             menu.classList.toggle('hidden');
-            hamburgerIcon.style.display = hamburgerIcon.style.display === 'none' ? '' : 'none';
-            closeIcon.style.display = closeIcon.style.display === 'none' ? '' : 'none';
+            if (menu.classList.contains('hidden')) {
+                hamburgerIcon.style.display = '';
+                closeIcon.style.display = 'none';
+            } else {
+                hamburgerIcon.style.display = 'none';
+                closeIcon.style.display = '';
+            }
         }
 
         // --- Animations on Scroll ---
         document.addEventListener('DOMContentLoaded', () => {
-            // Apply initial states to elements we want to animate
-            const animateElements = document.querySelectorAll('.bg-white.rounded-2xl, section h2, section p.text-sidebar\\/60, .flex.gap-4');
+            const animateElements = document.querySelectorAll('.glass-card, section h2, section h3, section p, section .grid > div');
 
             animateElements.forEach((el, index) => {
                 el.style.opacity = '0';
-                el.style.transform = 'translateY(20px)';
-                el.style.transition = `opacity 0.6s ease-out, transform 0.6s ease-out`;
-                // Add slight stagger
-                el.style.transitionDelay = `${(index % 3) * 0.15}s`;
+                el.style.transform = 'translateY(24px)';
+                el.style.transition = `opacity 0.65s ease-out, transform 0.65s ease-out`;
+                el.style.transitionDelay = `${(index % 4) * 0.12}s`;
             });
 
-            const observerOptions = {
-                root: null,
-                rootMargin: '0px',
-                threshold: 0.15
-            };
-
-            const observer = new IntersectionObserver((entries, observer) => {
+            const observer = new IntersectionObserver((entries, obs) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.style.opacity = '1';
                         entry.target.style.transform = 'translateY(0)';
-                        observer.unobserve(entry.target);
+                        obs.unobserve(entry.target);
                     }
                 });
-            }, observerOptions);
+            }, { threshold: 0.1 });
 
             animateElements.forEach(el => observer.observe(el));
         });
