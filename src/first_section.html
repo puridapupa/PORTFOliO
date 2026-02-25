@@ -196,17 +196,36 @@
                     <section class="glass-card rounded-2xl p-6 shadow-md card-hover-lift md:p-8 card-hover-lift">
                         <div class="flex items-center justify-between mb-6">
                             <h2 class="text-lg font-bold text-sidebar">1.1 แผนการจัดการเรียนรู้</h2>
-                            <button
-                                onclick="downloadPDF('../assets/pdf_files/1.1/แผนการสอน.pdf', 'แผนการจัดการเรียนรู้.pdf')"
-                                class="px-6 py-2 bg-sidebar text-white rounded-xl hover:bg-sidebar/90 transition-all duration-200 cursor-pointer">
-                                คลิกเพื่อดูรายละเอียด
-                            </button>
                         </div>
-                        <div class="w-full relative rounded-xl border border-sidebar/10 shadow-sm"
-                            style="height: 75vh; min-height: 500px; max-height: 900px; overflow-y: auto; -webkit-overflow-scrolling: touch;">
-                            <iframe src="../assets/pdf_files/1.1/แผนการสอน.pdf" class="w-full"
-                                style="min-height: 100%; border: none;" scrolling="auto"
-                                title="แผนการจัดการเรียนรู้"></iframe>
+                        <!-- Document Display Card -->
+                        <div
+                            class="w-full min-h-[350px] rounded-xl border border-sidebar/10 overflow-hidden bg-gradient-to-br from-white to-sidebar/5 flex items-center justify-center p-8 relative group">
+                            <!-- Background decoration -->
+                            <div
+                                class="absolute -right-20 -top-20 w-64 h-64 bg-sidebar/[0.03] rounded-full blur-3xl group-hover:bg-sidebar/[0.05] transition-colors duration-500 pointer-events-none">
+                            </div>
+
+                            <div class="text-center space-y-6 relative z-10">
+                                <div class="mb-6 flex justify-center">
+                                    <div
+                                        class="w-24 h-24 bg-white rounded-2xl shadow-sm border border-sidebar/10 flex items-center justify-center text-sidebar/40 group-hover:text-sidebar group-hover:scale-110 group-hover:shadow-md transition-all duration-300">
+                                        <i class="fa fa-file-pdf-o" style="font-size:3.5rem;"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-bold text-sidebar mb-2">เอกสารแผนการจัดการเรียนรู้</h3>
+                                    <p class="text-sidebar/70 text-sm max-w-sm mx-auto">
+                                        คลิกปุ่มด้านล่างเพื่อเปิดดูหรือดาวน์โหลดเอกสารแผนการสอนฉบับเต็มรายละเอียดครบถ้วน
+                                    </p>
+                                </div>
+                                <div class="pt-4">
+                                    <button
+                                        onclick="downloadPDF('../assets/pdf_files/1.1/แผนการสอน.pdf', 'แผนการจัดการเรียนรู้.pdf')"
+                                        class="inline-flex items-center gap-3 px-8 py-3.5 bg-sidebar text-white rounded-xl hover:bg-sidebar/90 transition-all duration-300 text-base font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                                        คลิกเพื่อดูรายละเอียด <i class="fa fa-arrow-right text-xs"></i>
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </section>
 
@@ -571,18 +590,36 @@
                     <section class="glass-card rounded-2xl p-6 shadow-md card-hover-lift md:p-8 card-hover-lift">
                         <div class="flex items-center justify-between mb-6">
                             <h2 class="text-lg font-bold text-sidebar">1.4 วิจัยในชั้นเรียน</h2>
-                            <button
-                                onclick="downloadPDF('../assets/pdf_files/1.4/โครงร่างวิจัย.pdf', 'วิจัยในชั้นเรียน.pdf')"
-                                class="px-6 py-2 bg-sidebar text-white rounded-xl hover:bg-sidebar/90 transition-all duration-200 cursor-pointer">
-                                คลิกเพื่อดูรายละเอียด
-                            </button>
                         </div>
-                        <!-- PDF.js Viewer (All devices) -->
-                        <div class="w-full relative rounded-xl border border-sidebar/10 shadow-sm"
-                            style="height: 75vh; min-height: 500px; max-height: 900px; overflow-y: auto; -webkit-overflow-scrolling: touch;">
-                            <iframe src="../assets/pdf_files/1.4/โครงร่างวิจัย.pdf" class="w-full"
-                                style="min-height: 100%; border: none;" scrolling="auto"
-                                title="วิจัยในชั้นเรียน"></iframe>
+                        <!-- Document Display Card -->
+                        <div
+                            class="w-full min-h-[350px] rounded-xl border border-sidebar/10 overflow-hidden bg-gradient-to-br from-white to-sidebar/5 flex items-center justify-center p-8 relative group">
+                            <!-- Background decoration -->
+                            <div
+                                class="absolute -left-20 -bottom-20 w-64 h-64 bg-sidebar/[0.03] rounded-full blur-3xl group-hover:bg-sidebar/[0.05] transition-colors duration-500 pointer-events-none">
+                            </div>
+
+                            <div class="text-center space-y-6 relative z-10">
+                                <div class="mb-6 flex justify-center">
+                                    <div
+                                        class="w-24 h-24 bg-white rounded-2xl shadow-sm border border-sidebar/10 flex items-center justify-center text-sidebar/40 group-hover:text-sidebar group-hover:scale-110 group-hover:shadow-md transition-all duration-300">
+                                        <i class="fa fa-file-text-o" style="font-size:3.5rem;"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-bold text-sidebar mb-2">เอกสารโครงร่างวิจัยชั้นเรียน</h3>
+                                    <p class="text-sidebar/70 text-sm max-w-sm mx-auto">
+                                        คลิกปุ่มด้านล่างเพื่อเปิดดูหรือดาวน์โหลดเอกสารงานวิจัยชั้นเรียนเพื่อการพัฒนาผู้เรียน
+                                    </p>
+                                </div>
+                                <div class="pt-4">
+                                    <button
+                                        onclick="downloadPDF('../assets/pdf_files/1.4/โครงร่างวิจัย.pdf', 'วิจัยในชั้นเรียน.pdf')"
+                                        class="inline-flex items-center gap-3 px-8 py-3.5 bg-sidebar text-white rounded-xl hover:bg-sidebar/90 transition-all duration-300 text-base font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                                        คลิกเพื่อดูรายละเอียด <i class="fa fa-arrow-right text-xs"></i>
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </section>
 
